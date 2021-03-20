@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cagta\\source\\repos\\EducationSaas\\Solution1\\ToolsForDb\\ToolsForDb.csproj": {}
+    "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cagta\\source\\repos\\EducationSaas\\Solution1\\ToolsForDb\\ToolsForDb.csproj": {
+    "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\Solution1\\ToolsForDb\\ToolsForDb.csproj",
+        "projectUniqueName": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
         "projectName": "ToolsForDb",
-        "projectPath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\Solution1\\ToolsForDb\\ToolsForDb.csproj",
+        "projectPath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
         "packagesPath": "C:\\Users\\cagta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\Solution1\\ToolsForDb\\obj\\",
+        "outputPath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cagta\\AppData\\Roaming\\NuGet\\NuGet.Config",
