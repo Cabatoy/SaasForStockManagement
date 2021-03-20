@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj": {}
+    "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj": {
+    "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
+        "projectUniqueName": "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
         "projectName": "ToolsForDb",
-        "projectPath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
-        "packagesPath": "C:\\Users\\cagta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\obj\\",
+        "projectPath": "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
+        "packagesPath": "C:\\Users\\bzmen\\.nuget\\packages\\",
+        "outputPath": "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\ToolsForDb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cagta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bzmen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
