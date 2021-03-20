@@ -1,0 +1,15 @@
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\bin\Debug\net5.0\ToolsForDb.deps.json
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\bin\Debug\net5.0\ToolsForDb.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\bin\Debug\net5.0\ref\ToolsForDb.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\bin\Debug\net5.0\ToolsForDb.pdb
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\bin\Debug\net5.0\DbFirstStep.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\bin\Debug\net5.0\DbFirstStep.pdb
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.csprojAssemblyReference.cache
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.AssemblyInfoInputs.cache
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.AssemblyInfo.cs
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.csproj.CoreCompileInputs.cache
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.csproj.CopyComplete
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ref\ToolsForDb.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\ToolsForDb\obj\Debug\net5.0\ToolsForDb.pdb

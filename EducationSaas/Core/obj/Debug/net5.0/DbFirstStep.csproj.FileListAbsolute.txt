@@ -1,0 +1,12 @@
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\bin\Debug\net5.0\DbFirstStep.deps.json
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\bin\Debug\net5.0\DbFirstStep.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\bin\Debug\net5.0\ref\DbFirstStep.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\bin\Debug\net5.0\DbFirstStep.pdb
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.csprojAssemblyReference.cache
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.AssemblyInfoInputs.cache
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.AssemblyInfo.cs
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.csproj.CoreCompileInputs.cache
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\ref\DbFirstStep.dll
+C:\Users\cagta\source\repos\EducationSaas\EducationSaas\Core\obj\Debug\net5.0\DbFirstStep.pdb

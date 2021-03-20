@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ToolsForDb
 {
-    class TestForCs
+    public class Converter
     {
-        public int BeratTest { get; set; }
-        public int BeratTest2 { get; set; }
-        public int CataTest { get; set; }
+
     }
 }
