@@ -8,5 +8,6 @@ namespace ToolsForDb
 {
     class TestForCs
     {
+        public int BeratTest { get; set; }
     }
 }
