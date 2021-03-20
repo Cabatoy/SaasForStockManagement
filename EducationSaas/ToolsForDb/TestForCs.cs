@@ -10,5 +10,6 @@ namespace ToolsForDb
     {
         public int BeratTest { get; set; }
         public int BeratTest2 { get; set; }
+        public int CataTest { get; set; }
     }
 }
