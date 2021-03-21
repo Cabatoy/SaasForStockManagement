@@ -22,18 +22,5 @@ namespace Core.sysTables
 
         
     }
-    //tanimlanana siniflar ilgili sql sorgulariyla calisilacak alanlar bu ornekteki gibi tanimlanmalidir
-    //bu alanlarda ki islemler mutlak tablo degisitiklikleri sonrasinda gozden gecirilmelidir.
-
-    public class CallSysUsers 
-    {
-        private static readonly Lazy<CallSysUsers> lazy = new Lazy<CallSysUsers>(() => new CallSysUsers());
-        public static CallSysUsers Instance { get { return lazy.Value; } }
-        public CallSysUsers()
-        {
-
-        }
-
-
-    }
+  
 }
