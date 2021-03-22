@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.sysTables
 {
-    public abstract class sysUsers
+    public  class sysUsers
     {
         public int ID { get; set; }
         public int CompanyId { get; set; }

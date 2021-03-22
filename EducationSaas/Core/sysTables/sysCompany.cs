@@ -10,6 +10,8 @@ namespace Core.sysTables
     {
         public int ID { get; set; }
         public string FullName { get; set; }
+        public string Adress { get; set; }
+        public string TaxNumber { get; set; }
         public List<sysLocals> lstLocals { get; set; }
      
     }

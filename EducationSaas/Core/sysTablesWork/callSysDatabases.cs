@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Common;
+using Core.sysTables;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,55 @@ namespace DbFirstStep.sysTablesWork
         public callSysDatabases()
         {
 
+        }
+        public sysReturn getDatabasesAsDatatable()
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+        }
+
+        public sysReturn getDatabasesAsList()
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+        }
+
+
+        public sysReturn getDatabasesWithId(int id)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+        }
+
+
+        public sysReturn insertDatabases(sysDatabases local)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+        }
+
+        public sysReturn updateDatabases(sysDatabases local)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+        }
+
+        public sysReturn deleteDatabases(int id)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
         }
 
 

@@ -1,4 +1,5 @@
 ﻿
+using Common.Db;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,14 +11,21 @@ using static Common.SysWorks;
 
 namespace Common
 {
-    public class SQL_DB_Functions
+    public class SqlDbFunctions
     {
+
+        private static readonly Lazy<SqlDbFunctions> lazy = new Lazy<SqlDbFunctions>(() => new SqlDbFunctions());
+        public static SqlDbFunctions Instance { get { return lazy.Value; } }
+        public SqlDbFunctions()
+        {
+
+        }
         public string Server = "";
         public string Database = "";
         public string UserName = "";
         public string Password = "";
 
-        private string ConnectionString;
+        public string ConnectionString;
         SqlConnection Conn;
         SqlTransaction Trans;
 
@@ -27,10 +35,10 @@ namespace Common
             sysReturn Retval = new sysReturn();
             try
             {
-                ConnectionString = "Data Source=" + Server +
-                                  ";Initial Catalog=" + Database +
-                                  ";User Id=" + UserName +
-                                  ";Password=" + Password + ";";
+                //ConnectionString = "Data Source=" + Server +
+                //                  ";Initial Catalog=" + Database +
+                //                  ";User Id=" + UserName +
+                //                  ";Password=" + Password + ";";
 
                 Retval.Durum = DurumTip.Ok;
             }
@@ -68,7 +76,8 @@ namespace Common
             try
             {
                 Conn = new SqlConnection();
-                Conn.ConnectionString = ConnectionString;
+
+                Conn.ConnectionString = ConnectionString = globalParameters.connectionAsMain;
                 if (Conn.State != System.Data.ConnectionState.Open)
                     Conn.Open();
             }
@@ -340,6 +349,84 @@ namespace Common
             return oreturn;
         }
 
+        public sysReturn ExecuteScalar(SqlCommand cmd, bool usingTrans)
+        {
+            sysReturn oreturn = new sysReturn();
+            try
+            {
+                if (Conn == null)
+                    OpenConnection();
+                if (usingTrans)
+                {
+                    if (Trans == null)
+                        throw new Exception("request has no corresponding TRANSACTION");
+                    cmd.Transaction = Trans;
+                }
+                cmd.Connection = Conn;
+                oreturn.Sonuc = cmd.ExecuteScalar();
+                oreturn.Durum = DurumTip.Ok;
+            }
+            catch (SqlException sql_ex)
+            {
+                if (sql_ex.Number == -2146232060)
+                    oreturn.Durum = DurumTip.ConflictKey;
+                else
+                    oreturn.Durum = DurumTip.Err;
+                oreturn.HataListe.Add(sql_ex.Message);
+            }
+            catch (Exception ex)
+            {
+                oreturn.Durum = DurumTip.Err;
+                oreturn.HataListe.Add(ex.Message);
+            }
+            finally
+            {
+                if (Trans == null)
+                    CloseConnection();
+                oreturn.SqlString = cmd.CommandText;
+            }
+            return oreturn;
+        }
+
+        public sysReturn ExecuteScalarInt(SqlCommand cmd, bool usingTrans)
+        {
+            sysReturn oreturn = new sysReturn();
+            try
+            {
+                if (Conn == null)
+                    OpenConnection();
+                if (usingTrans)
+                {
+                    if (Trans == null)
+                        throw new Exception("request has no corresponding TRANSACTION");
+                    cmd.Transaction = Trans;
+                }
+                cmd.Connection = Conn;
+                oreturn.Sonuc = cmd.ExecuteScalar()._ToIntegerR();
+                oreturn.Durum = DurumTip.Ok;
+            }
+            catch (SqlException sql_ex)
+            {
+                if (sql_ex.Number == -2146232060)
+                    oreturn.Durum = DurumTip.ConflictKey;
+                else
+                    oreturn.Durum = DurumTip.Err;
+                oreturn.HataListe.Add(sql_ex.Message);
+            }
+            catch (Exception ex)
+            {
+                oreturn.Durum = DurumTip.Err;
+                oreturn.HataListe.Add(ex.Message);
+            }
+            finally
+            {
+                if (Trans == null)
+                    CloseConnection();
+                oreturn.SqlString = cmd.CommandText;
+            }
+            return oreturn;
+        }
+
         public sysReturn GetDataTable(bool bUseTrans, SqlCommand cmd)
         {
             DataTable Dt = new DataTable();
@@ -463,5 +550,28 @@ namespace Common
 
             return oRetval;
         }
+
+        public bool TabloKolonVarmi(string tabloAdi, string kolonAdi)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = string.Format("select COUNT(*) from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '{0}' AND COLUMN_NAME = '{1}'", tabloAdi, kolonAdi);
+            return ExecuteScalarInt(cmd, false).Sonuc._ToIntegerR() > 0;
+        }
+
+        public void TabloyaKolonEkle(string tabloAdi, string kolonAdi, string dataType)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = string.Format("ALTER TABLE {0} ADD {1} {2}; ", tabloAdi, kolonAdi, dataType);
+            ExecuteNonQuery(cmd, false);
+        }
+
+        public bool TabloVarMi(string ConnectionStrings, string tabloAdi)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = string.Format("SELECT COUNT(*) FROM SYS.tables WHERE NAME = '{0}'", tabloAdi);
+            return ExecuteScalarInt(cmd, false).Sonuc._ToIntegerR() > 0;
+           
+        }
+
     }
 }

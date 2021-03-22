@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Common;
+using Core.sysTables;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +19,78 @@ namespace DbFirstStep.sysTablesWork
         {
 
         }
+        public sysReturn getCompanyiesLocalAsDatatable()
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
+
+        public sysReturn getCompanyiesLocalAsList()
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
+
+        public sysReturn getAllLocalAsList()
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
+
+        public sysReturn getAllLocalsAsDataTable()
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+        
+        }
+
+        public sysReturn getLocalWithId(int id)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
 
 
+
+        public sysReturn insertLocal(sysLocals local)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
+
+        public sysReturn updateLocal(sysLocals local)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
+
+        public sysReturn deleteLocal(int id)
+        {
+            sysReturn returnValue = new sysReturn();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "";
+            return returnValue;
+
+        }
     }
 }

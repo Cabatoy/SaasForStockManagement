@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Common
 {
-    public static class MyExtension
+    public static class myExtension
     {
-        /// <summary>
-        /// Bir string içerisindeki tüm karakterlerin Ascii değerlerini ele alıp byte dizisi şeklinde geriye döndürür. Eğer string null veya empty ise exception döndürür.
-        /// </summary>
-        /// <param name="s">Byte değerleri döndürülecek string parametre</param>
-        /// <returns>Ascii değerleri</returns>
       
         public static bool? _ToBoolean(this object gelen)
         {
@@ -372,8 +370,21 @@ namespace Common
             }
             return table;
         }
+
+        public static void FlushMemory()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+                SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
+        }
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        private static extern int SetProcessWorkingSetSize(IntPtr process, int minimumWorkingSetSize, int maximumWorkingSetSize);
+
         public static string OndalikSperator { get { return CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator; } }
         public static string OndalikYanSperator { get { return CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator == "." ? "," : "."; } }
 
+      
     }
 }
