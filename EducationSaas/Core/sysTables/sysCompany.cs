@@ -11,12 +11,7 @@ namespace Core.sysTables
         public int ID { get; set; }
         public string FullName { get; set; }
         public List<sysLocals> lstLocals { get; set; }
-        private static readonly Lazy<sysCompany> lazy = new Lazy<sysCompany>(() => new sysCompany());
-        public static sysCompany Instance { get { return lazy.Value; } }
-        public sysCompany()
-        {
-
-        }
+     
     }
    
 }

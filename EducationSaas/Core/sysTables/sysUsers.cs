@@ -18,9 +18,6 @@ namespace Core.sysTables
         public sysLocals Locals { get; set; }
         public sysAuthentication Auth { get; set; }
         public sysLicence Licence { get; set; }
-
-
-        
     }
   
 }

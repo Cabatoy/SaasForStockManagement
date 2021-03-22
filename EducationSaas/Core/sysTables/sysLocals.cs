@@ -13,12 +13,7 @@ namespace Core.sysTables
         public string FullName { get; set; }
 
 
-        private static readonly Lazy<sysLocals> lazy = new Lazy<sysLocals>(() => new sysLocals());
-        public static sysLocals Instance { get { return lazy.Value; } }
-        public sysLocals()
-        {
-
-        }
+       
     }
    
 }
