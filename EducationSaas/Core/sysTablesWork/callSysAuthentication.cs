@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common;
+using Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +19,32 @@ namespace DbFirstStep.sysTablesWork
 
         }
 
+        public sysReturn InsertAuth(sysAuthentication aut)
+        {
+            sysReturn returnValue = new sysReturn();
 
 
 
+            return returnValue;
+        }
+
+        public sysReturn UpdateAuth(sysAuthentication aut)
+        {
+            sysReturn returnValue = new sysReturn();
+
+
+
+            return returnValue;
+        }
+
+        public sysReturn DeleteAuth(int ID)
+        {
+            sysReturn returnValue = new sysReturn();
+
+
+
+            return returnValue;
+        }
 
     }
 }

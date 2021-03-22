@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Le1xOSkqmt59PXKdDl41P/z/EH3tiGHiF3q3daEbPoqX3KUDx0SuSEUpOQ6eUGMZKM1KTTgJNlQa0VL2CBNc3Q==",
+  "dgSpecHash": "oPOVCxPJ/wwVD8TTpNLrcu0MmAKnkursAN1Up9Ucd1BON9TU8Li/kq27QqvbOxi8QG39q2c5szLciSUBxcjK6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\ToolsForDb\\ToolsForDb.csproj",
+  "projectFilePath": "C:\\Users\\cagta\\source\\repos\\EducationSaas\\EducationSaas\\Common\\Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cagta\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\cagta\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
