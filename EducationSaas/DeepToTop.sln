@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbFirstStep", "Core\DbFirstStep.csproj", "{00440C44-AC32-4BCA-B227-D3B65AF88F48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{99500CD9-9024-4E96-8146-CDCA18F719CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{99500CD9-9024-4E96-8146-CDCA18F719CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{704CA981-C556-4B8C-A4F7-90C3E5199466}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CahatayTest", "CahatayTest", "{C0E46222-6F4E-40E8-9AF4-BE0A63A32907}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,17 @@ Global
 		{99500CD9-9024-4E96-8146-CDCA18F719CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99500CD9-9024-4E96-8146-CDCA18F719CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99500CD9-9024-4E96-8146-CDCA18F719CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704CA981-C556-4B8C-A4F7-90C3E5199466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704CA981-C556-4B8C-A4F7-90C3E5199466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704CA981-C556-4B8C-A4F7-90C3E5199466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704CA981-C556-4B8C-A4F7-90C3E5199466}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00440C44-AC32-4BCA-B227-D3B65AF88F48} = {C0E46222-6F4E-40E8-9AF4-BE0A63A32907}
+		{99500CD9-9024-4E96-8146-CDCA18F719CE} = {C0E46222-6F4E-40E8-9AF4-BE0A63A32907}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {326B91C8-2BC8-48F2-8BDA-72EB893CA19C}
