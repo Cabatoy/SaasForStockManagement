@@ -6,7 +6,6 @@ C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\Education
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\bin\Debug\netcoreapp3.0\WebApi.runtimeconfig.dev.json
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\bin\Debug\netcoreapp3.0\WebApi.dll
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\bin\Debug\netcoreapp3.0\WebApi.pdb
-C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\obj\Debug\netcoreapp3.0\WebApi.csprojAssemblyReference.cache
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\obj\Debug\netcoreapp3.0\WebApi.AssemblyInfoInputs.cache
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\obj\Debug\netcoreapp3.0\WebApi.AssemblyInfo.cs
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebApi\obj\Debug\netcoreapp3.0\WebApi.csproj.CoreCompileInputs.cache

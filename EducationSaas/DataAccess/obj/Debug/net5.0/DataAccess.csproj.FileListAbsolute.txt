@@ -10,3 +10,15 @@ C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\Dat
 C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.pdb
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\DataAccess.deps.json
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\DataAccess.dll
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\ref\DataAccess.dll
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\DataAccess.pdb
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.csprojAssemblyReference.cache
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.dll
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.pdb
