@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constant;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFrameWork;
@@ -26,14 +27,14 @@ namespace Business.Concrete
         {
             //kurallar buralara yazilabilir if else vs gibi gibi
             _companyDal.Add(company);
-            return new SuccessResult(message: "İşlem Başarılı");
+            return new SuccessResult(message: Messages.CompanyAdded);
         }
 
         public IResult Delete(Company company)
         {
             
             _companyDal.Delete(company);
-            return new SuccessResult(message: "İşlem Başarılı");
+            return new SuccessResult(message: Messages.CompanyDeleted);
         }
 
         public IDataResult<Company> GetById(int CompanyId)
@@ -50,7 +51,7 @@ namespace Business.Concrete
         public IResult Update(Company company)
         {
             _companyDal.update(company);
-            return new SuccessResult(message: "İşlem Başarılı");
+            return new SuccessResult(message: Messages.CompanyUpdated);
         }
     }
 }
