@@ -9,7 +9,7 @@ namespace Entities.Concrete
 {
     public class Company:IEntity
     {
-
+        public int ID { get; set; }
 
     }
 }

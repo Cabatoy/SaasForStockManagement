@@ -8,7 +8,6 @@ C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\Education
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\bin\Debug\netcoreapp3.1\WebAplication.pdb
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\bin\Debug\netcoreapp3.1\WebAplication.Views.dll
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\bin\Debug\netcoreapp3.1\WebAplication.Views.pdb
-C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.csprojAssemblyReference.cache
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.AssemblyInfoInputs.cache
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.AssemblyInfo.cs
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.csproj.CoreCompileInputs.cache

@@ -22,3 +22,6 @@ C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\Education
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\Entities\obj\Debug\net5.0\Entities.dll
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\Entities\obj\Debug\net5.0\ref\Entities.dll
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\Entities\obj\Debug\net5.0\Entities.pdb
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\Entities\bin\Debug\net5.0\Core.dll
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\Entities\bin\Debug\net5.0\Core.pdb
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\Entities\obj\Debug\net5.0\Entities.csproj.CopyComplete
