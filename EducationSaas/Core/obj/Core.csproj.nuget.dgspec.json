@@ -1,31 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {}
+    "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {
+    "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Çağtay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\obj\\",
+        "projectPath": "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\bzmen\\.nuget\\packages\\",
+        "outputPath": "C:\\BitBucketProjects\\EducationSaas\\EducationSaas\\Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Çağtay\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
+          "C:\\Users\\bzmen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
