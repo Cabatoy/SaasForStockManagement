@@ -5729,11 +5729,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj"
+            "D:\\BUYUK-PROJE\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {
+              "projectPath": "D:\\BUYUK-PROJE\\EducationSaas\\EducationSaas\\Core\\Core.csproj"
             },
-            "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj"
+            "D:\\BUYUK-PROJE\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\BUYUK-PROJE\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj"
             }
           }
         }
@@ -5771,5 +5771,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\BUYUK-PROJE\\EducationSaas\\EducationSaas\\DataAccess\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
