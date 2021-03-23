@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
-      "projectName": "Core",
-      "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Business\\Business.csproj",
+      "projectName": "Business",
+      "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\Çağtay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\obj\\",
+      "outputPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

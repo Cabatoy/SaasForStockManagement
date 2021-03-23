@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {}
+    "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj": {
+    "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
-        "projectName": "Core",
-        "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Çağtay\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\obj\\",
+        "outputPath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

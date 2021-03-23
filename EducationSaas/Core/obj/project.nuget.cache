@@ -1,18 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g24Htbxe31hI/kezyLhp3GZ/sameJeLpxhCRO/PxomQkRmyvyLH7GTTJ+adUMeKNtK8MhNxPnG273bgizd2cig==",
+  "dgSpecHash": "cWoPU2vUAL3D92riOoYvMqvjbTYC2LgS7sGXxggJFoCHw9cKBiEjsq+dOuTCLtnXjXebOmqy8YqkEumc34WPAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\DbFirstStep.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Çağtay\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\Çağtay\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
-    "C:\\Users\\Çağtay\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Çağtay\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
-    "C:\\Users\\Çağtay\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\Çağtay\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Core\\Core.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
