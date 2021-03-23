@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a0OklSI8fJy2B5W3KgLTN9jfNV6k2XbHPLTPjfkc/FOiEbrTNdiudwQmm65Sl3c0DxDQRN9SPJUizlOLb9ykVA==",
+  "dgSpecHash": "IIwbWluEGuZv8akH2EWq94MVmJa90vUkSWB5BRI69RxG+a0tzUdwKBRQv3pNrrQWfobJMF37Jzo/v3hTAWOmfQ==",
   "success": true,
-  "projectFilePath": "D:\\BUYUK-PROJE\\EducationSaas\\EducationSaas\\WebApi\\WebApi.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\UGURCOBAN\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
-    "C:\\Users\\UGURCOBAN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
-    "C:\\Users\\UGURCOBAN\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
-    "C:\\Users\\UGURCOBAN\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\WebApi\\WebApi.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
