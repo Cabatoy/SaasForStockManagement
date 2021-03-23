@@ -1,0 +1,12 @@
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\DataAccess.deps.json
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\DataAccess.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\ref\DataAccess.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\bin\Debug\net5.0\DataAccess.pdb
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.csprojAssemblyReference.cache
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\DataAccess\obj\Debug\net5.0\DataAccess.pdb

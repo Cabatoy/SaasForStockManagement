@@ -1,0 +1,12 @@
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\bin\Debug\net5.0\Business.deps.json
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\bin\Debug\net5.0\Business.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\bin\Debug\net5.0\ref\Business.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\bin\Debug\net5.0\Business.pdb
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.csprojAssemblyReference.cache
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.AssemblyInfoInputs.cache
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.AssemblyInfo.cs
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.csproj.CoreCompileInputs.cache
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\ref\Business.dll
+C:\BitBucketProjects\EducationSaas\EducationSaas\Business\obj\Debug\net5.0\Business.pdb
