@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
+using DataAccess.Concrete.EntityFrameWork;
 
 namespace WebCoreApi
 {
@@ -26,6 +27,7 @@ namespace WebCoreApi
                 {
 
                     builder.RegisterModule(new AutofacBusinessModule());
+                    builder.RegisterType<EduManageDbContext>().AsSelf().As<EduManageDbContext>().InstancePerLifetimeScope();
 
                 })
                 .ConfigureWebHostDefaults(webBuilder =>

@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFrameWork
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"");
+            optionsBuilder.UseSqlServer(connectionString: @"Server =; Database = ; User Id = ; Password = ; connection timeout = 60;  ");
         }
 
         public DbSet<Company> Company { get; set; }
