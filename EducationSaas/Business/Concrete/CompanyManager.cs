@@ -40,7 +40,7 @@ namespace Business.Concrete
         public IDataResult<Company> GetById(int CompanyId)
         {
             // _companyDal.Get(filter: p => p.ID == CompanyId)
-            return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.ID == CompanyId));
+            return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId));
         }
 
         public IDataResult<List<Company>> GetList()
