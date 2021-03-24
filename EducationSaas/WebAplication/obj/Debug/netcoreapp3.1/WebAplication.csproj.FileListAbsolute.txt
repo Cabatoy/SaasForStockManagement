@@ -34,3 +34,4 @@ C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\Education
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.pdb
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.genruntimeconfig.cache
 C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.csproj.CopyComplete
+C:\Users\Çağtay\Desktop\SaasForEducation\EducationSaas\EducationSaas\EducationSaas\WebAplication\obj\Debug\netcoreapp3.1\WebAplication.csprojAssemblyReference.cache
