@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UwxNsOKUhldUWSqC2XE0VfYhBLseu97vnKR5+2Gy61isBET5v83/xR52UwuLQqgVtKIQFF3BA+tU+e5KFm7OcQ==",
+  "dgSpecHash": "/i5giwig2jOGq459YF54KiplUUi8LXFTgdjh1vV46qwTZWXovrLdyo2msprK/5jn8GBjxaPukJ33P99BtLBD9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Çağtay\\Desktop\\SaasForEducation\\EducationSaas\\EducationSaas\\EducationSaas\\Business\\Business.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Çağtay\\.nuget\\packages\\autofac\\6.1.0\\autofac.6.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Çağtay\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.1\\microsoft.data.sqlclient.2.1.1.nupkg.sha512",
     "C:\\Users\\Çağtay\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
