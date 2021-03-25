@@ -24,6 +24,15 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<LicenceManager>().As<ILicenceService>();
             builder.RegisterType<EfLicenceDal>().As<ILicenceDal>();
+
+            builder.RegisterType<LocalsManager>().As<ILocalsService>();
+            builder.RegisterType<EfLocalsDal>().As<ILocalsDal>();
+
+            builder.RegisterType<RolesManager>().As<IRolesService>();
+            builder.RegisterType<EfRolesDal>().As<IRolesDal>();
+
+            builder.RegisterType<UsersManager>().As<IUsersService>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
         }
     }
 }

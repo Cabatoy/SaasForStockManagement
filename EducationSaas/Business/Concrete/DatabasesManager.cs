@@ -20,10 +20,9 @@ namespace Business.Concrete
         {
             _databasesDal = databasesDal;
         }
-
+        //kurallar buralara yazilabilir if else vs gibi gibi
         public IResult Add(Databases database)
         {
-            //kurallar buralara yazilabilir if else vs gibi gibi
             _databasesDal.Add(database);
             return new SuccessResult(message: Messages.DatabaseAdded);
         }

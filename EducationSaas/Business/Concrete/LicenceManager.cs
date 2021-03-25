@@ -22,16 +22,15 @@ namespace Business.Concrete
             _licenceDal = licenceDal;
 
         }
+        //kurallar buralara yazilabilir if else vs gibi gibi
         public IResult Add(Licence licence)
         {
-            //kurallar buralara yazilabilir if else vs gibi gibi
             _licenceDal.Add(licence);
             return new SuccessResult(message: Messages.LicenceAdded);
         }
 
         public IResult Delete(Licence licence)
         {
-            //kurallar buralara yazilabilir if else vs gibi gibi
             _licenceDal.Delete(licence);
             return new SuccessResult(message: Messages.LicenceDeleted);
         }
@@ -48,7 +47,6 @@ namespace Business.Concrete
 
         public IResult Update(Licence licence)
         {
-            //kurallar buralara yazilabilir if else vs gibi gibi
             _licenceDal.Update(licence);
             return new SuccessResult(message: Messages.LicenceUpdated);
         }

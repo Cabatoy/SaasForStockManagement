@@ -23,9 +23,10 @@ namespace Business.Concrete
         {
             _companyDal = companyDal;
         }
+        //kurallar buralara yazilabilir if else vs gibi gibi
         public IResult Add(Company company)
         {
-            //kurallar buralara yazilabilir if else vs gibi gibi
+            
             _companyDal.Add(company);
             return new SuccessResult(message: Messages.CompanyAdded);
         }
@@ -39,7 +40,6 @@ namespace Business.Concrete
 
         public IDataResult<Company> GetById(int CompanyId)
         {
-            // _companyDal.Get(filter: p => p.ID == CompanyId)
             return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId));
         }
 
