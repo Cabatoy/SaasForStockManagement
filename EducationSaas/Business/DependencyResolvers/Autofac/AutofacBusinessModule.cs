@@ -17,6 +17,7 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
             builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
+            builder.RegisterType<EfDatabasesDal>().As<IDatabasesDal>();
         }
     }
 }

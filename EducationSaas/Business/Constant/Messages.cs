@@ -11,5 +11,10 @@ namespace Business.Constant
         public static string CompanyAdded = "Firma Başarı ile eklendi";
         public static string CompanyUpdated = "Firma Başarı ile güncellendi";
         public static string CompanyDeleted = "Firma Başarı ile silindi";
+        
+        public static string DatabaseAdded =   "Database Bilgisi Başarı ile eklendi";
+        public static string DatabaseUpdated = "Database Bilgisi Başarı ile güncellendi";
+        public static string DatabaseDeleted = "Database Bilgisi Başarı ile silindi";
+
     }
 }
