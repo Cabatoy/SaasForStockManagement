@@ -16,5 +16,9 @@ namespace Business.Constant
         public static string DatabaseUpdated = "Database Bilgisi Başarı ile güncellendi";
         public static string DatabaseDeleted = "Database Bilgisi Başarı ile silindi";
 
+        public static string LicenceAdded =   "Lisans Bilgisi Başarı ile eklendi";
+        public static string LicenceUpdated = "Lisans Bilgisi Başarı ile güncellendi";
+        public static string LicenceDeleted = "Lisans Bilgisi Başarı ile silindi";
+
     }
 }

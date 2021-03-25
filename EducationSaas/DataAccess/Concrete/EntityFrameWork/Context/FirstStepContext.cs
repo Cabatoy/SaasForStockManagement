@@ -19,5 +19,6 @@ namespace DataAccess.Concrete.EntityFrameWork
 
         public DbSet<Company> Company { get; set; }
         public DbSet<Databases> Databases { get; set; }
+        public DbSet<Licence> Licence { get; set; }
     }
 }
