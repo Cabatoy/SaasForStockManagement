@@ -4,19 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Core.DataAccess.EntityFramework
 {
-    public class IEFEntityRepositoryBase<Tentity, Tcontext> : IEntityRepository<Tentity>
-        where Tentity : class, IEntity, new()
-        where Tcontext : DbContext, new()
+    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
+        where TEntity : class, IEntity, new()
+        where TContext : DbContext, new()
     {
-        public void Add(Tentity entity)
+        public void Add(TEntity entity)
         {
             //unit of work kendisinde dahil
-            using (var context = new Tcontext())
+            using (var context = new TContext())
             {
                 //gonderilen entity i context e abone ettik.ister update ister delete ne yapacaksan 
                 var addedEntity = context.Entry(entity);
@@ -25,9 +24,9 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public void Delete(Tentity entity)
+        public void Delete(TEntity entity)
         {
-            using (var context = new Tcontext())
+            using (var context = new TContext())
             {
                 //gonderilen entity i context e abone ettik.ister update ister delete ne yapacaksan 
                 var deletedEntity = context.Entry(entity);
@@ -35,9 +34,9 @@ namespace Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
-        public void update(Tentity entity)
+        public void Update(TEntity entity)
         {
-            using (var context = new Tcontext())
+            using (var context = new TContext())
             {
                 //gonderilen entity i context e abone ettik.ister update ister delete ne yapacaksan 
                 var updatedEntity = context.Entry(entity);
@@ -45,19 +44,19 @@ namespace Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
-        public Tentity Get(Expression<Func<Tentity, bool>> filter)
+        public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
-            using (var context = new Tcontext())
+            using (var context = new TContext())
             {
-                return context.Set<Tentity>().SingleOrDefault(filter);
+                return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
 
-        public List<Tentity> GetList(Expression<Func<Tentity, bool>> filter = null)
+        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
-            using (var context = new Tcontext())
+            using (var context = new TContext())
             {
-                return filter == null ? context.Set<Tentity>().ToList() : context.Set<Tentity>().Where(filter).ToList();
+                return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
             }
         }
 

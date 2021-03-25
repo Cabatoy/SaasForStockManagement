@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Business.Abstract;
 using Business.Concrete;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFrameWork;
 
 namespace Business.DependencyResolvers.Autofac
@@ -14,9 +15,8 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
-            builder.RegisterType<EfCompanyDal>().As<EfCompanyDal>();
+            builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
         }
     }
 }

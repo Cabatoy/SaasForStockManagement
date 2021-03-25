@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfCompanyDal : IEFEntityRepositoryBase<Company, EduManageDbContext>, ICompanyDal
+    public class EfCompanyDal : EfEntityRepositoryBase<Company, FirstStepContext>, ICompanyDal
     {
 
     }

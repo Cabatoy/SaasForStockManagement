@@ -9,6 +9,6 @@ namespace Entities.Concrete
 	public class Roles
 	{
 		public int ID { get; set; }
-		public string AuthenticationType { get; set; }
+		public string RoleName { get; set; }
 	}
 }

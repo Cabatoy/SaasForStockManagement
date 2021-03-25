@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         public IResult Delete(Company company)
         {
-            
+
             _companyDal.Delete(company);
             return new SuccessResult(message: Messages.CompanyDeleted);
         }
@@ -50,7 +50,7 @@ namespace Business.Concrete
 
         public IResult Update(Company company)
         {
-            _companyDal.update(company);
+            _companyDal.Update(company);
             return new SuccessResult(message: Messages.CompanyUpdated);
         }
     }

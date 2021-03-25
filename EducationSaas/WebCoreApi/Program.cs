@@ -27,7 +27,7 @@ namespace WebCoreApi
                 {
 
                     builder.RegisterModule(new AutofacBusinessModule());
-                    builder.RegisterType<EduManageDbContext>().AsSelf().As<EduManageDbContext>().InstancePerLifetimeScope();
+                    builder.RegisterType<FirstStepContext>().AsSelf().As<FirstStepContext>().InstancePerLifetimeScope();
 
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
