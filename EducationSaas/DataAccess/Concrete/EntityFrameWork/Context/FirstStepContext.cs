@@ -11,8 +11,7 @@ namespace DataAccess.Concrete.EntityFrameWork
     public class FirstStepContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-
+        {      
             //server=.;database=FirstStep;trusted_connection=true;
             //Server =.; Database =FirstStep ; User Id =sa ; Password =sql2014 ; connection timeout = 60;  
             optionsBuilder.UseSqlServer(connectionString: @"Server=. ; Database=FirstStep; trusted_connection=true;");
