@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebCoreApi", "WebCoreApi\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcUI", "MvcUI\MvcUI.csproj", "{563DCE2E-7D0C-4881-BDF9-7911C235DA14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcUICore", "MvcUICore\MvcUICore.csproj", "{BB0CA5DF-6204-4B79-8A32-7722ACCD5951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{563DCE2E-7D0C-4881-BDF9-7911C235DA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{563DCE2E-7D0C-4881-BDF9-7911C235DA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{563DCE2E-7D0C-4881-BDF9-7911C235DA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0CA5DF-6204-4B79-8A32-7722ACCD5951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0CA5DF-6204-4B79-8A32-7722ACCD5951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0CA5DF-6204-4B79-8A32-7722ACCD5951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0CA5DF-6204-4B79-8A32-7722ACCD5951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
