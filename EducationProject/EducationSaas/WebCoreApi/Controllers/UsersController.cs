@@ -32,7 +32,9 @@ namespace WebCoreApi.Controllers
 
         }
 
-        [HttpGet(template: "getById")]
+        //[HttpGet(template: "getById")]
+        [HttpGet]
+        [Route("GetById/{userId:int}")]
         public IActionResult GetById(int userId)
         {
             var result = _userService.GetById(userId);
