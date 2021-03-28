@@ -14,32 +14,11 @@ namespace MvcUI.Controllers
     {
         public ActionResult Login()
         {
-            //var httpHandler = new HttpClientHandler();
-            //httpHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
-            //{
-            //    return true;
-            //};
 
-            //using (var client = new HttpClient(httpHandler))
-            //{
-            //    //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
-
-            //    client.BaseAddress = new Uri("https://localhost:44329/");
-            //    client.DefaultRequestHeaders.Accept.Clear();
-            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //    HttpResponseMessage response;
-            //    response = client.GetAsync("api/users/getall").Result;
-            //    if (response.IsSuccessStatusCode)
-            //    {
-            //    }
-            //    else
-            //    {
-            //    }
-            //}
-
+            HttpService.Get("users", "getById", 5);
+            
+            
             HttpService.Get("users","getall");
-
-
 
             return View();
         }
