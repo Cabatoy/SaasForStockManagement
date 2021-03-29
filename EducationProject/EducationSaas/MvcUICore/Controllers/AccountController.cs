@@ -12,15 +12,17 @@ namespace MvcUICore.Controllers
     {
         public IActionResult Login()
         {
-            Users user = new Users{ Id=1,FullName="berat",CompanyId=1 };
+            return View();
 
-            HttpService.Post("users", "add",user);
+            Users user = new Users { Id = 1, FullName = "berat", CompanyId = 1 };
+
+            HttpService.Post("users", "add", user);
 
             HttpService.Get("users", "getById", 5);
 
             HttpService.Get("users", "getall");
 
-            return View();
+
         }
     }
 }
