@@ -20,29 +20,29 @@ namespace Business.Concrete
             _localdal = localdal;
         }
 
-        public IResult Add(Locals locals)
+        public IResult Add(Local locals)
         {
             _localdal.Add(locals);
             return new SuccessResult(message: Messages.LocalsAdded);
         }
 
-        public IResult Delete(Locals locals)
+        public IResult Delete(Local locals)
         {
             _localdal.Delete(locals);
             return new SuccessResult(message: Messages.LocalsDeleted);
         }
 
-        public IDataResult<Locals> GetById(int localId)
+        public IDataResult<Local> GetById(int localId)
         {
-            return new SuccessDataResult<Locals>(_localdal.Get(p => p.Id == localId));
+            return new SuccessDataResult<Local>(_localdal.Get(p => p.Id == localId));
         }
 
-        public IDataResult<List<Locals>> GetList()
+        public IDataResult<List<Local>> GetList()
         {
-            return new SuccessDataResult<List<Locals>>(_localdal.GetList());
+            return new SuccessDataResult<List<Local>>(_localdal.GetList());
         }
 
-        public IResult Update(Locals locals)
+        public IResult Update(Local locals)
         {
             _localdal.Add(locals);
             return new SuccessResult(message: Messages.LocalsUpdated);

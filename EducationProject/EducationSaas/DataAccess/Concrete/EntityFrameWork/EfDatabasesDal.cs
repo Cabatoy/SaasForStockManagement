@@ -10,7 +10,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfDatabasesDal : EfEntityRepositoryBase<Databases, FirstStepContext>, IDatabasesDal
+    public class EfDatabasesDal : EfEntityRepositoryBase<Database, FirstStepContext>, IDatabasesDal
     {
 
     }

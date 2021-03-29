@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.DataAccess;
 using Core.Entities.Concrete;
-using Entities.Concrete;
 
-namespace DataAccess.Abstract
+namespace Core.Utilities.Security.Jwt
 {
-    public interface IRolesDal : IEntityRepository<Role>
+    public interface ITokenHelper
     {
-
+        AccessToken CreateToken(User user, List<RoleDetail> roles);
     }
 }

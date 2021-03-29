@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 
 namespace WebCoreApi.Controllers
@@ -48,7 +49,7 @@ namespace WebCoreApi.Controllers
 
 
         [HttpPost(template: "add")]
-        public IActionResult Add(Users user)
+        public IActionResult Add(User user)
         {
             var result = _userService.Add(user);
             if (result.Success)
@@ -60,7 +61,7 @@ namespace WebCoreApi.Controllers
         }
 
         [HttpPost(template: "update")]
-        public IActionResult Update(Users user)
+        public IActionResult Update(User user)
         {
             var result = _userService.Update(user);
             if (result.Success)
@@ -71,7 +72,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
         [HttpPost(template: "delete")]
-        public IActionResult Delete(Users user)
+        public IActionResult Delete(User user)
         {
             var result = _userService.Delete(user);
             if (result.Success)

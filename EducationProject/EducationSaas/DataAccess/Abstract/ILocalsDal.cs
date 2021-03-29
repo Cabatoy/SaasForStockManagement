@@ -8,7 +8,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface ILocalsDal : IEntityRepository<Locals>
+    public interface ILocalsDal : IEntityRepository<Local>
     {
 
     }

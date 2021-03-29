@@ -10,10 +10,10 @@ namespace Business.Abstract
 {
     public interface ILocalsService
     {
-        IDataResult<List<Locals>> GetList();
-        IDataResult<Locals> GetById(int locals);
-        IResult Add(Locals locals);
-        IResult Delete(Locals locals);
-        IResult Update(Locals locals);
+        IDataResult<List<Local>> GetList();
+        IDataResult<Local> GetById(int locals);
+        IResult Add(Local locals);
+        IResult Delete(Local locals);
+        IResult Update(Local locals);
     }
 }

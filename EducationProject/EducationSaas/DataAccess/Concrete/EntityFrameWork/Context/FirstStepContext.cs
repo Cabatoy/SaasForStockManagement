@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
@@ -18,10 +19,11 @@ namespace DataAccess.Concrete.EntityFrameWork
         }
 
         public DbSet<Company> Company { get; set; }
-        public DbSet<Databases> Databases { get; set; }
+        public DbSet<Database> Databases { get; set; }
         public DbSet<Licence> Licence { get; set; }
-        public DbSet<Locals> Locals { get; set; }
-        public DbSet<Roles> Roles { get; set; }
-        public DbSet<Users> Users { get; set; }
+        public DbSet<Local> Local { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<RoleDetail> RoleDetail { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

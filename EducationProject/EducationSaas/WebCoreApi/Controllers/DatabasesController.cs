@@ -47,7 +47,7 @@ namespace WebCoreApi.Controllers
 
 
         [HttpPost(template: "add")]
-        public IActionResult Add(Databases database)
+        public IActionResult Add(Database database)
         {
             var result = _databaseService.Add(database);
             if (result.Success)
@@ -59,7 +59,7 @@ namespace WebCoreApi.Controllers
         }
 
         [HttpPost(template: "update")]
-        public IActionResult Update(Databases database)
+        public IActionResult Update(Database database)
         {
             var result = _databaseService.Update(database);
             if (result.Success)
@@ -70,7 +70,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
         [HttpPost(template: "delete")]
-        public IActionResult Delete(Databases database)
+        public IActionResult Delete(Database database)
         {
             var result = _databaseService.Delete(database);
             if (result.Success)

@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Entities;
 
-namespace Entities.Concrete
+namespace Entities.Dtos
 {
-    public class Roles : IEntity
+    public class UserForLoginDto : IDto
     {
-        public int ID { get; set; }
-        public string RoleName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

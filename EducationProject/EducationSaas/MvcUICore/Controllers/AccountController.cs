@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Entities.Concrete;
 
 namespace MvcUICore.Controllers
 {
@@ -12,7 +13,7 @@ namespace MvcUICore.Controllers
     {
         public IActionResult Login()
         {
-            Users user = new Users{ Id=1,FullName="berat",CompanyId=1 };
+            User user = new User{ Id=1,FullName="berat",CompanyId=1 };
 
             HttpService.Post("users", "add",user);
 

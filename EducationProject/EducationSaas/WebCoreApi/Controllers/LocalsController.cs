@@ -46,7 +46,7 @@ namespace WebCoreApi.Controllers
 
 
         [HttpPost(template: "add")]
-        public IActionResult Add(Locals locals)
+        public IActionResult Add(Local locals)
         {
             var result = _localsService.Add(locals);
             if (result.Success)
@@ -58,7 +58,7 @@ namespace WebCoreApi.Controllers
         }
 
         [HttpPost(template: "update")]
-        public IActionResult Update(Locals locals)
+        public IActionResult Update(Local locals)
         {
             var result = _localsService.Update(locals);
             if (result.Success)
@@ -69,7 +69,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
         [HttpPost(template: "delete")]
-        public IActionResult Delete(Locals locals)
+        public IActionResult Delete(Local locals)
         {
             var result = _localsService.Delete(locals);
             if (result.Success)

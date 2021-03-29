@@ -10,11 +10,11 @@ namespace Business.Abstract
 {
     public interface IDatabasesService
     {
-        IDataResult<List<Databases>> GetList();
-        IDataResult<Databases> GetById(int databaseId);
-        IResult Add(Databases company);
-        IResult Delete(Databases company);
-        IResult Update(Databases company);
+        IDataResult<List<Database>> GetList();
+        IDataResult<Database> GetById(int databaseId);
+        IResult Add(Database company);
+        IResult Delete(Database company);
+        IResult Update(Database company);
 
     }
 }

@@ -31,8 +31,13 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<RolesManager>().As<IRolesService>();
             builder.RegisterType<EfRolesDal>().As<IRolesDal>();
 
+            builder.RegisterType<RoleDetailManager>().As<IRoleDetailService>();
+            builder.RegisterType<EfRoleDetailDal>().As<IRoleDetailDal>();
+
             builder.RegisterType<UsersManager>().As<IUsersService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
+
+         
         }
     }
 }

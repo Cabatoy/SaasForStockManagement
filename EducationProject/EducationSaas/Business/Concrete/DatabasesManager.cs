@@ -21,29 +21,29 @@ namespace Business.Concrete
             _databasesDal = databasesDal;
         }
         //kurallar buralara yazilabilir if else vs gibi gibi
-        public IResult Add(Databases database)
+        public IResult Add(Database database)
         {
             _databasesDal.Add(database);
             return new SuccessResult(message: Messages.DatabaseAdded);
         }
 
-        public IResult Delete(Databases database)
+        public IResult Delete(Database database)
         {
             _databasesDal.Delete(database);
             return new SuccessResult(message: Messages.DatabaseDeleted);
         }
 
-        public IDataResult<Databases> GetById(int databaseId)
+        public IDataResult<Database> GetById(int databaseId)
         {
-            return new SuccessDataResult<Databases>(_databasesDal.Get(p => p.Id == databaseId));
+            return new SuccessDataResult<Database>(_databasesDal.Get(p => p.Id == databaseId));
         }
 
-        public IDataResult<List<Databases>> GetList()
+        public IDataResult<List<Database>> GetList()
         {
-            return new SuccessDataResult<List<Databases>>(_databasesDal.GetList());
+            return new SuccessDataResult<List<Database>>(_databasesDal.GetList());
         }
 
-        public IResult Update(Databases database)
+        public IResult Update(Database database)
         {
             _databasesDal.Update(database);
             return new SuccessResult(message: Messages.DatabaseUpdated);

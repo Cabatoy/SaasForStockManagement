@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Entities.Concrete;
 
@@ -10,10 +11,10 @@ namespace Business.Abstract
 {
    public interface IUsersService
     {
-        IDataResult<List<Users>> GetList();
-        IDataResult<Users> GetById(int userId);
-        IResult Add(Users user);
-        IResult Delete(Users user);
-        IResult Update(Users user);
+        IDataResult<List<User>> GetList();
+        IDataResult<User> GetById(int userId);
+        IResult Add(User user);
+        IResult Delete(User user);
+        IResult Update(User user);
     }
 }

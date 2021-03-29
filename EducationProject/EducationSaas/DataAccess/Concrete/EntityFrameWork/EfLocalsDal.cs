@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfLocalsDal : EfEntityRepositoryBase<Locals, FirstStepContext>, ILocalsDal
+    public class EfLocalsDal : EfEntityRepositoryBase<Local, FirstStepContext>, ILocalsDal
     {
 
     }

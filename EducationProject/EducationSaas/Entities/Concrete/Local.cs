@@ -7,7 +7,7 @@ using Core.Entities;
 
 namespace Entities.Concrete
 {
-    public class Locals : IEntity
+    public class Local : IEntity
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }

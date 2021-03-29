@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-	public class Databases : IEntity
+	public class Database : IEntity
 	{
 		public int Id { get; set; }
 		public int CompanyId { get; set; }
