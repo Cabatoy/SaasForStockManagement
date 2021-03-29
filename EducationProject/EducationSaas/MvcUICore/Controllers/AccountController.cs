@@ -24,5 +24,10 @@ namespace MvcUICore.Controllers
 
 
         }
+
+        public IActionResult LogOut()
+        {
+            return View();
+        }
     }
 }
