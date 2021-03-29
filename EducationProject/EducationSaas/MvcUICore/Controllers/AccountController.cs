@@ -15,7 +15,7 @@ namespace MvcUICore.Controllers
         {
             return View();
 
-            Users user = new Users { Id = 1, FullName = "berat", CompanyId = 1 };
+            User user = new User { Id = 1, FullName = "berat", CompanyId = 1 };
 
             HttpService.Post("users", "add", user);
 
