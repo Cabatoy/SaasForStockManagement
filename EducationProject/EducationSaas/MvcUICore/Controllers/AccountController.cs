@@ -29,5 +29,10 @@ namespace MvcUICore.Controllers
         {
             return View();
         }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
