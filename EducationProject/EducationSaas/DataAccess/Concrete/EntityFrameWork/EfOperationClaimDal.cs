@@ -11,8 +11,8 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfRolesDal : EfEntityRepositoryBase<Role, FirstStepContext>, IRolesDal
+    public class EfOperationClaimDal : EfEntityRepositoryBase<OperationClaim, FirstStepContext>, IOperationClaimDal
     {
-
+         
     }
 }

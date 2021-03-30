@@ -9,12 +9,15 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-   public interface IUsersService
+    public interface IUserService
     {
+        List<OperationClaim> GetClaims(User user);
         IDataResult<List<User>> GetList();
         IDataResult<User> GetById(int userId);
+        User GetByMail(string mail);
         IResult Add(User user);
         IResult Delete(User user);
         IResult Update(User user);
+
     }
 }

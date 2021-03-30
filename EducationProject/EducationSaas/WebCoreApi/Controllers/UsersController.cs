@@ -14,8 +14,8 @@ namespace WebCoreApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private IUsersService _userService;
-        public UsersController(IUsersService userService)
+        private IUserService _userService;
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }

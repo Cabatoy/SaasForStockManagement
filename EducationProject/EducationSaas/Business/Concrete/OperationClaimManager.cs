@@ -12,37 +12,37 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class RolesManager : IRolesService
+    public class OperationClaimManager : IOperationClaimService
     {
-        private IRolesDal _rolesDal;
+        private IOperationClaimDal _rolesDal;
 
-        public RolesManager(IRolesDal rolesDal)
+        public OperationClaimManager(IOperationClaimDal rolesDal)
         {
             _rolesDal = rolesDal;
         }
-        public IResult Add(Role roles)
+        public IResult Add(OperationClaim roles)
         {
             _rolesDal.Add(roles);
             return new SuccessResult(message: Messages.rolesAdded);
         }
 
-        public IResult Delete(Role roles)
+        public IResult Delete(OperationClaim roles)
         {
             _rolesDal.Delete(roles);
             return new SuccessResult(message: Messages.rolesDeleted);
         }
 
-        public IDataResult<Role> GetById(int rolesId)
+        public IDataResult<OperationClaim> GetById(int rolesId)
         {
-            return new SuccessDataResult<Role>(_rolesDal.Get(p => p.ID == rolesId));
+            return new SuccessDataResult<OperationClaim>(_rolesDal.Get(p => p.Id == rolesId));
         }
 
-        public IDataResult<List<Role>> GetList()
+        public IDataResult<List<OperationClaim>> GetList()
         {
-            return new SuccessDataResult<List<Role>>(_rolesDal.GetList());
+            return new SuccessDataResult<List<OperationClaim>>(_rolesDal.GetList());
         }
 
-        public IResult Update(Role roles)
+        public IResult Update(OperationClaim roles)
         {
             _rolesDal.Update(roles);
             return new SuccessResult(message: Messages.rolesUpdated);

@@ -10,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Transactions;
+using Core.Utilities.Security.Encyption;
+using Core.Utilities.Security.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WebCoreApi
 {
@@ -26,6 +31,29 @@ namespace WebCoreApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {//normalde localhost yerine domain gelecek.
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.WithOrigins("http://localhost:3000"));
+            });
+            var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+            //(string)Convert.ChangeType(Configuration["TokenOptions:ValidAudience"], typeof(string)),
+            options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidIssuer =  tokenOptions.Issuer,
+                    ValidAudience = tokenOptions.Audience,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                        
+                };
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,11 +64,19 @@ namespace WebCoreApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            //neler yapilabilir.(evde ne yapilabilir) tokenla yetkiyi yakalmis olucaz
+            app.UseAuthentication();
+
+            //anahtar(eve giris) giris bilgileri ile login saglamak icin
             app.UseAuthorization();
+
+            
 
             app.UseEndpoints(endpoints =>
             {

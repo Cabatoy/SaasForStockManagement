@@ -12,7 +12,7 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class UsersManager : IUsersService
+    public class UsersManager : IUserService
     {
         private IUserDal _userDal;
 
@@ -34,7 +34,17 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int userId)
         {
-            return  new SuccessDataResult<User>(_userDal.Get(p => p.Id == userId));
+            return new SuccessDataResult<User>(_userDal.Get(p => p.Id == userId));
+        }
+
+        public User GetByMail(string mail)
+        {
+            return _userDal.Get(p => p.Email == mail);
+        }
+
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
         }
 
         public IDataResult<List<User>> GetList()

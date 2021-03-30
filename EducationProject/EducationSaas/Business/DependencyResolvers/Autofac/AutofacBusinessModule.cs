@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Business.Abstract;
 using Business.Concrete;
+using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFrameWork;
 
@@ -15,6 +16,8 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            #region firma-sube-lisans
+
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
             builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
 
@@ -28,16 +31,27 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<LocalsManager>().As<ILocalsService>();
             builder.RegisterType<EfLocalsDal>().As<ILocalsDal>();
 
-            builder.RegisterType<RolesManager>().As<IRolesService>();
-            builder.RegisterType<EfRolesDal>().As<IRolesDal>();
+            #endregion
 
-            builder.RegisterType<RoleDetailManager>().As<IRoleDetailService>();
-            builder.RegisterType<EfRoleDetailDal>().As<IRoleDetailDal>();
+            #region Kullanici
 
-            builder.RegisterType<UsersManager>().As<IUsersService>();
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
+            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>();
+
+            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
+            builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
+
+            builder.RegisterType<UsersManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 
-         
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            //  builder.RegisterType<EfUserDal>().As<IUserDal>();
+
+
+            #endregion
+
         }
     }
 }

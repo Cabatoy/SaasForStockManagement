@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -17,6 +18,8 @@ namespace WebCoreApi.Controllers
         }
     
         [HttpGet(template: "getall")]
+        [Authorize()]
+        [Authorize(Roles = "Company.List")]
         public IActionResult GetList()
         {
             var result = _companyService.GetList();

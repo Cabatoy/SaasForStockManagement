@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq.Expressions;
 using System.Security.Claims;
 using Core.Extensions;
 
@@ -28,50 +29,42 @@ namespace Core.Utilities.Security.Jwt
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
         }
 
-        public AccessToken CreateToken(User user, List<RoleDetail> roles)
+        public AccessToken CreateToken(User user, List<OperationClaim> roles)
         {
-            //new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenOptions.SecurityKey));
-
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
-            throw new NotImplementedException();
+            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, roles);
+            var jwtSecurityTakenHandler = new JwtSecurityTokenHandler();
+            var token = jwtSecurityTakenHandler.WriteToken(jwt);
+            return new AccessToken
+            {
+                Token = token,
+                Expiration = _accessTokenExpiration
+            };
         }
 
         public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions,
-            User user, SigningCredentials signingCredentials, List<RoleDetail> roleDetails)
+            User user, SigningCredentials signingCredentials, List<OperationClaim> UserOperationClaims)
         {
-            throw new NotImplementedException();
-            //var jwt =new JwtSecurityTokenHandler(
-            //{
+            var jwt = new JwtSecurityToken(
+                issuer: tokenOptions.Issuer,
+                audience: tokenOptions.Audience,
+                expires: _accessTokenExpiration,
+                notBefore: DateTime.Now,
+                claims: SetClaims(user, UserOperationClaims),
+                signingCredentials: signingCredentials
+            );
+            return jwt;
 
-            //});
-            //var tokenDescriptor = new SecurityTokenDescriptor
-            //{
-            //    Issuer = tokenOptions.Issuer,
-            //    Audience = tokenOptions.Audience
-
-            //}
-
-
-
-            //var jwt = new JwtSecurityToken(
-            //    //Issuer: tokenDescriptor.Issuer,
-            //    //audience: tokenOptions.Audience,
-            //    expires: _accessTokenExpiration,
-            //    notBefore: DateTime.Now,
-            //    claims: SetClaims(user,roleDetails),
-            //    signingCredentials = signingCredentials
-
-            //    );
         }
 
-        private IEnumerable<Claim> SetClaims(User user, List<RoleDetail> rollsDetails)
+        private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> rollsDetails)
         {
             var claims = new List<Claim>();
             claims.AddNameIdentifier(user.Id.ToString());
-            claims.AddEmail(user.LoginName);
+            claims.AddEmail(user.Email);
             claims.AddName(user.FullName);
-            claims.AddRoleDetail(rollsDetails.Select(x=>x.Description).ToArray());
+            claims.AddUserOperationClaim(rollsDetails.Select(x => x.Name).ToArray());
             return claims;
         }
     }

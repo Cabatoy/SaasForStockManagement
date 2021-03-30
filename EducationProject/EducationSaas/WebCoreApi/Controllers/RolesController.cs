@@ -14,8 +14,8 @@ namespace WebCoreApi.Controllers
     [ApiController]
     public class RolesController : ControllerBase
     {
-        private IRolesService _rolesService;
-        public RolesController(IRolesService rolesService)
+        private IOperationClaimService _rolesService;
+        public RolesController(IOperationClaimService rolesService)
         {
             _rolesService = rolesService;
         }
@@ -47,7 +47,7 @@ namespace WebCoreApi.Controllers
 
 
         [HttpPost(template: "add")]
-        public IActionResult Add(Role role)
+        public IActionResult Add(OperationClaim role)
         {
             var result = _rolesService.Add(role);
             if (result.Success)
@@ -59,7 +59,7 @@ namespace WebCoreApi.Controllers
         }
 
         [HttpPost(template: "update")]
-        public IActionResult Update(Role role)
+        public IActionResult Update(OperationClaim role)
         {
             var result = _rolesService.Update(role);
             if (result.Success)
@@ -70,7 +70,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
         [HttpPost(template: "delete")]
-        public IActionResult Delete(Role role)
+        public IActionResult Delete(OperationClaim role)
         {
             var result = _rolesService.Delete(role);
             if (result.Success)
