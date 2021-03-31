@@ -15,7 +15,7 @@ namespace DataAccess.Concrete.EntityFrameWork
         {
             //server=.;database=FirstStep;trusted_connection=true;
             //Server =.; Database =FirstStep ; User Id =sa ; Password =sql2014 ; connection timeout = 60;  
-            optionsBuilder.UseSqlServer(connectionString: @"Server=. ; Database=FirstStep; trusted_connection=true;");
+            optionsBuilder.UseSqlServer(connectionString: @"Server=BERATOZMEN\SQLEXPRESS; Database=FirstStep; trusted_connection=true;");
         }
 
         public DbSet<Company> Company { get; set; }

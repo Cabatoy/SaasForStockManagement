@@ -24,7 +24,7 @@ namespace MvcUICore.Utility.Api
             string result = string.Empty;
             using (var client = new HttpClient(httpHandler))
             {
-                client.BaseAddress = new Uri(url.AbsoluteUri + "/" + controllerName + "/"); 
+                client.BaseAddress = new Uri(url.AbsoluteUri + "/" + controllerName + "/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = client.GetAsync(requestUri).Result;
@@ -88,7 +88,12 @@ namespace MvcUICore.Utility.Api
                     //if (response.Content.Headers.ContentLength <= 4)
                     //    result = string.Empty;
                     //else
-                    //    result = response.Content.ReadAsAsync<object>().Result.ToString();
+                     result  =response.Content.ReadAsStringAsync().Result;
+                    //result = response.Content.ReadAsAsync<object>().Result.ToString();
+                }
+                else
+                {
+                    result = response.Content.ReadAsStringAsync().Result;
                 }
             }
             return result;

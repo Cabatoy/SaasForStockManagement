@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities.Concrete;
+using Microsoft.AspNetCore.Http;
+using Entities.Dtos;
 
 namespace MvcUICore.Controllers
 {
@@ -13,18 +15,30 @@ namespace MvcUICore.Controllers
     {
         public IActionResult Login()
         {
+
             return View();
 
-            User user = new User { Id = 1, FullName = "berat", CompanyId = 1 };
-
-            HttpService.Post("users", "add", user);
-
-            HttpService.Get("users", "getById", 5);
-
-            HttpService.Get("users", "getall");
-
-
+            //HttpService.Get("users", "getById", 5);
+            //HttpService.Get("users", "getall");
         }
+
+        [HttpPost]
+        public IActionResult Login(string email, string password)
+        {
+            UserForLoginDto user = new UserForLoginDto { Email = email, Password = password };
+
+            var result = HttpService.Post("Auth", "login", user);
+
+            if (result != null)
+            {
+                HttpContext.Session.SetInt32("token", 1);
+                HttpContext.Session.SetString("fullname", "b");
+                return Redirect("/Home/Index");
+            }
+
+            return View();
+        }
+
 
         public IActionResult LogOut()
         {

@@ -48,10 +48,10 @@ namespace Core.DataAccess.EntityFramework
         {
             using (var context = new TContext())
             {
-                return context.Set<TEntity>().SingleOrDefault(filter);
+                //return context.Set<TEntity>().SingleOrDefault(filter);
+                return context.Set<TEntity>().Where(filter).FirstOrDefault();
             }
         }
-
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())
