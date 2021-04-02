@@ -1,10 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
     Layout = "_AccountLayout";
     ViewData["Title"] = "Login Page";
 }
 
+
 <div class="col-lg-5">
-    <div class="card">
+    <div class="card" id="load">
         <!-- Logo -->
         <div class="card-header pt-4 pb-4 text-center bg-primary">
             <a href="index.html">
@@ -44,8 +47,9 @@
                     </div>
                 </div>
 
+                @*$("#toastr-three").on("click",function(t){i.NotificationApp.send("Well Done!","You successfully read this important alert message","bottom-right","rgba(0,0,0,0.2)","success")})*@
                 <div class="form-group mb-0 text-center">
-                    <button class="btn btn-primary" type="submit"> Giriş </button>
+                    <button class="btn btn-primary" type="submit" id="toastr-three"> Giriş </button>
                 </div>
 
             </form>
@@ -60,4 +64,20 @@
     </div>
     <!-- end row -->
 
-</div> 
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+         if (@HttpContextAccessor.HttpContext.Session.GetString("login") == "0") {
+             !function (i) {
+                 i.NotificationApp.send("Ooopss!", "Bir şeyler ters gitti, tekrar dene güzelim", "bottom-left", "rgba(0,0,0,1)", "error");
+            }(window.jQuery);
+        }
+
+    });
+
+</script>

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -542,3 +544,17 @@
 
 </div>
 <!-- Start Content END -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        if (@HttpContextAccessor.HttpContext.Session.GetString("login") == "1") {
+        !function (i) {
+            i.NotificationApp.send("Oo yee!", "Kullanıcı Girişi Başarılı Bir Şekilde Yapıldı", "bottom-right", "rgba(0,0,0,1)", "success");
+            }(window.jQuery);
+        }
+
+    });
+</script>
