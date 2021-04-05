@@ -14,8 +14,9 @@ namespace DataAccess.Concrete.EntityFrameWork
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //server=.;database=FirstStep;trusted_connection=true;
-            //Server =.; Database =FirstStep ; User Id =sa ; Password =sql2014 ; connection timeout = 60;  
-            optionsBuilder.UseSqlServer(connectionString: @"Server=BERATOZMEN\SQLEXPRESS; Database=FirstStep; trusted_connection=true;");
+            //Server =OURAL\\SQL2014; Database =FirstStep ; User Id =sa ; Password =sql2014 ; connection timeout = 60;  
+         //   optionsBuilder.UseSqlServer(connectionString: @"Server=BERATOZMEN\SQLEXPRESS; Database=FirstStep; trusted_connection=true;");
+            optionsBuilder.UseSqlServer(connectionString: @"Server =OURAL\\SQL2014; Database =FirstStep ; User Id =sa ; Password =sql2014 ; connection timeout = 60");
         }
 
         public DbSet<Company> Company { get; set; }
