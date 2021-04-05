@@ -19,10 +19,10 @@ namespace DataAccess.Concrete.EntityFrameWork
             optionsBuilder.UseSqlServer(connectionString: @"Server =OURAL\\SQL2014; Database =FirstStep ; User Id =sa ; Password =sql2014 ; connection timeout = 60");
         }
 
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Database> Databases { get; set; }
-        public DbSet<Licence> Licence { get; set; }
-        public DbSet<Local> Local { get; set; }
+        //public DbSet<Company> Company { get; set; }
+        //public DbSet<Database> Databases { get; set; }
+        //public DbSet<Licence> Licence { get; set; }
+        //public DbSet<Local> Local { get; set; }
         public DbSet<OperationClaim> OperationClaim { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
         public DbSet<User> User { get; set; }

@@ -6,15 +6,14 @@ using DataAccess.Concrete.EntityFrameWork;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcern.Validation;
+using Core.Aspect.Autfac.Validation;
 
 namespace Business.Concrete
 {
-    /// <summary>
-    /// Dependency Injection ornegi
-    /// </summary>
+    
     public class CompanyManager : ICompanyService
     {
         private ICompanyDal _companyDal;
@@ -23,17 +22,17 @@ namespace Business.Concrete
         {
             _companyDal = companyDal;
         }
-        //kurallar buralara yazilabilir if else vs gibi gibi
+
+        [ValidatonAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
         public IResult Add(Company company)
         {
-            
+            ValidationTool.Validate(new CompanyValidator(), company);
             _companyDal.Add(company);
             return new SuccessResult(message: Messages.CompanyAdded);
         }
 
         public IResult Delete(Company company)
         {
-
             _companyDal.Delete(company);
             return new SuccessResult(message: Messages.CompanyDeleted);
         }

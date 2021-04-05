@@ -20,7 +20,7 @@ namespace Business.Concrete
         {
             _databasesDal = databasesDal;
         }
-        //kurallar buralara yazilabilir if else vs gibi gibi
+        //kurallar buralara yazilabilir if else vs gibi gibi VALIDATION
         public IResult Add(Database database)
         {
             _databasesDal.Add(database);

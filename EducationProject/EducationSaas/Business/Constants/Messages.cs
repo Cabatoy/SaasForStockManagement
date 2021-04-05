@@ -39,5 +39,15 @@ namespace Business.Constant
         public static string SuccessfullLogin = "Sisteme Giris Basarili";
         public static string UserAlreadyExist = "Kullanıcı daha önce kayıt olmuştur.";
         public static string AccessTokenCreated= "Token Oluşturuldu.";
+
+
+        #region ValidationMessages
+
+        public static string TaxNumberValidationError = "Vergi Numarasi Boş Bırakılamaz.";
+        public static string TaxNumberLengtValidationError = "Vergi Numarasi Uzunluğu hatası";
+
+        #endregion
+
+
     }
 }

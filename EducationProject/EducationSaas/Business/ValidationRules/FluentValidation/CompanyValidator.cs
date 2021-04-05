@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Business.Constant;
+using Entities.Concrete;
+using FluentValidation;
+
+namespace Business.ValidationRules.FluentValidation
+{
+    public class CompanyValidator : AbstractValidator<Company>
+    {
+        public CompanyValidator()
+        {
+            RuleFor(p => p.TaxNumber).NotEmpty().WithMessage(Messages.TaxNumberValidationError);
+            RuleFor(p => p.TaxNumber).Length(10,11).WithMessage(Messages.TaxNumberLengtValidationError);
+
+
+            #region örnek kullanımlar commentli
+            // RuleFor(p => p.Id).GreaterThanOrEqualTo(10).When(p => p.FullName == ""); 
+            //RuleFor(p => p.TaxNumber).Must(StarWithWithA); 
+            #endregion
+
+
+
+        }
+
+        private bool StarWithWithA(string arg)
+        {
+            return arg.StartsWith("A");
+        }
+    }
+}
