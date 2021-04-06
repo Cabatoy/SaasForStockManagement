@@ -8,12 +8,13 @@ using System;
 using System.Collections.Generic;
 
 using Business.ValidationRules.FluentValidation;
+using Core.Aspect.Autfac.Transaction;
 using Core.CrossCuttingConcern.Validation;
 using Core.Aspect.Autfac.Validation;
 
 namespace Business.Concrete
 {
-    
+
     public class CompanyManager : ICompanyService
     {
         private ICompanyDal _companyDal;
@@ -26,7 +27,7 @@ namespace Business.Concrete
         [ValidatonAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
         public IResult Add(Company company)
         {
-            ValidationTool.Validate(new CompanyValidator(), company);
+            // ValidationTool.Validate(new CompanyValidator(), company);
             _companyDal.Add(company);
             return new SuccessResult(message: Messages.CompanyAdded);
         }
@@ -47,10 +48,19 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Company>>(_companyDal.GetList());
         }
 
+
+
         public IResult Update(Company company)
         {
             _companyDal.Update(company);
             return new SuccessResult(message: Messages.CompanyUpdated);
+        }
+        [TransactionScopeAspect]
+        public IResult TransactionalOperation(Company company)
+        {
+            _companyDal.Update(company);
+            _companyDal.Add(company);
+            return new SuccessResult(message: "test");
         }
     }
 }

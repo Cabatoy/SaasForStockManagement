@@ -79,5 +79,16 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
+        [HttpPost(template: "Transaction")]
+        public IActionResult TransactionTest(Company company)
+        {
+            var result = _companyService.TransactionalOperation(company);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            else
+                return BadRequest(result.Message);
+        }
     }
 }
