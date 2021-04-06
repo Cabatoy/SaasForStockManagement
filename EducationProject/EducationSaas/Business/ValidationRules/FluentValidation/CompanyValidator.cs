@@ -18,7 +18,7 @@ namespace Business.ValidationRules.FluentValidation
 
 
             #region örnek kullanımlar commentli
-            // RuleFor(p => p.Id).GreaterThanOrEqualTo(10).When(p => p.FullName == ""); 
+            RuleFor(p => p.Id).GreaterThanOrEqualTo(10).When(p => p.FullName == ""); 
             //RuleFor(p => p.TaxNumber).Must(StarWithWithA); 
             #endregion
 

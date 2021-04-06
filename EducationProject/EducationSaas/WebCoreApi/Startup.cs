@@ -11,10 +11,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
+using Core.DependencyResolvers;
 using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Core.Extensions;
+using Core.Utilities.IoC;
 
 namespace WebCoreApi
 {
@@ -30,6 +33,7 @@ namespace WebCoreApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddMemoryCache();
             services.AddControllers();
             services.AddCors(options =>
             {//normalde localhost yerine domain gelecek.
@@ -39,19 +43,23 @@ namespace WebCoreApi
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-            //(string)Convert.ChangeType(Configuration["TokenOptions:ValidAudience"], typeof(string)),
-            options.TokenValidationParameters = new TokenValidationParameters
+                //(string)Convert.ChangeType(Configuration["TokenOptions:ValidAudience"], typeof(string)),
+                options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
-                    ValidIssuer =  tokenOptions.Issuer,
+                    ValidIssuer = tokenOptions.Issuer,
                     ValidAudience = tokenOptions.Audience,
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-                        
+
                 };
 
+            });
+            services.AddDependencyResolvers(new ICoreModule[]
+            {
+                new CoreModule()
             });
 
         }
@@ -76,7 +84,7 @@ namespace WebCoreApi
             //anahtar(eve giris) giris bilgileri ile login saglamak icin
             app.UseAuthorization();
 
-            
+
 
             app.UseEndpoints(endpoints =>
             {
