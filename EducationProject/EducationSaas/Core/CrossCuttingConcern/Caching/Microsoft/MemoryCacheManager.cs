@@ -63,10 +63,12 @@ namespace Core.CrossCuttingConcern.Caching.Microsoft
             var regex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.IgnoreCase);
             var keysToRemove = cacheCollectionValues.Where(d => regex.IsMatch(d.Key.ToString())).Select(d => d.Key).ToList();
 
+                //06.04.2021
             foreach (var key in keysToRemove)
             {
                 _memoryCache.Remove(key);
             }
+            
         }
     }
 }
