@@ -1,0 +1,116 @@
+﻿@model List<Entities.Concrete.Company>
+@{
+    ViewData["Title"] = "Müşteri Yönetimi";
+}
+
+<br>
+<form class="needs-validation" action="/Company/Index" method="post" novalidate>
+    <div class="form-group mb-3">
+        <label for="validationCustom01">Şirket İsmi</label>
+        <input type="text" class="form-control" id="fullName" name="FullName" placeholder="Şirket İsmi" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="validationCustom01">Şirket Vergi No</label>
+        <input type="text" class="form-control" id="taxNumber" name="TaxNumber" placeholder="Vergi No" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="example-textarea">Şirket Adresi</label>
+        <textarea class="form-control" id="adress" name="Adress" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 100px;" placeholder="Şirket Adresi" required></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Kaydet</button>
+</form>
+
+
+<br />
+<br />
+Müşteri Listesi
+<table id="scroll-vertical-datatable" class="table dt-responsive nowrap">
+    <thead>
+        <tr>
+            <th>Şirket İsmi</th>
+            <th>Şirket Adresi</th>
+            <th>Şirket Vergi No</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td hidden>@item.Id</td>
+                <td>@item.FullName</td>
+                <td>@item.Adress</td>
+                <td>@item.TaxNumber</td>
+                <td>
+                    <div class="row icons-list-demo">
+                        <div class="col-sm-6 col-md-4 col-lg-3"><span onclick="companyUpdate(@item.Id)" value="@item.Id" class="dripicons-pencil"></span></div>
+                    </div>
+                </td>
+                <td>
+                    <div class="row icons-list-demo">
+                        <div class="col-sm-6 col-md-4 col-lg-3"><i class="dripicons-trash"></i></div>
+                    </div>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+
+    function companyUpdate(i) {
+        //alert(i);
+        var name = document.getElementById("fullName").value;
+        var taxno = document.getElementById("taxNumber").value;
+        var adress = document.getElementById("adress").value;
+
+        $.ajax({
+            url: "/Company/Update",
+            type: "POST",
+            async: false,
+            dataType: "json",
+            data: { id: i, name: name, taxno: taxno, adress: adress },
+            success: function (data) {
+                if (data.result == 1)
+                    alert("Başarılı!");
+                //alert(data.message);
+                else
+                    alert("Başarısız!");
+            }
+        });
+        
+    }
+
+
+
+
+
+
+    //$.ajax({
+    //    url: "/Company/Update",
+    //    type: "POST",
+    //    dataType: "json",
+    //    data: { commentId: id },
+    //    success: function (data) {
+    //        if (data.result == 1)
+    //            alert(data.message);
+    //        else
+    //            alert("Onaylama Başarısız!");
+    //    }
+    //});
+</script>

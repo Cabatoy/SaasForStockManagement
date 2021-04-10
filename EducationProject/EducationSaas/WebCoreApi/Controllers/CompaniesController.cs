@@ -18,8 +18,8 @@ namespace WebCoreApi.Controllers
         }
     
         [HttpGet(template: "getall")]
-        [Authorize()]
-        [Authorize(Roles = "Company.List")]
+        //[Authorize()]
+        //[Authorize(Roles = "Company.List")]
         public IActionResult GetList()
         {
             var result = _companyService.GetList();

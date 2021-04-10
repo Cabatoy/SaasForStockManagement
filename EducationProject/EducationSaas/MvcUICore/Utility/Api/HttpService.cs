@@ -30,6 +30,7 @@ namespace MvcUICore.Utility.Api
                 HttpResponseMessage response = client.GetAsync(requestUri).Result;
                 if (response.IsSuccessStatusCode)
                 {
+                    result = response.Content.ReadAsStringAsync().Result;
                     //if (response.Content.Headers.ContentLength <= 4)
                     //    result = string.Empty;
                     //else
