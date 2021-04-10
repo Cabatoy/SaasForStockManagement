@@ -19,22 +19,22 @@
                 <p class="text-muted mb-4">Hesabın yok mu? Hesabınızı Kolayca Oluşturabilirsiniz</p>
             </div>
 
-            <form action="#">
+            <form action="/Account/Register" method="post">
 
                 <div class="form-group">
                     <label for="fullname">İsim</label>
-                    <input class="form-control" type="text" id="fullname" placeholder="İsminizi Giriniz" required>
+                    <input class="form-control" type="text" id="fullname" name="FullName" placeholder="İsminizi Giriniz" required>
                 </div>
 
                 <div class="form-group">
                     <label for="emailaddress">Email</label>
-                    <input class="form-control" type="email" id="emailaddress" required placeholder="Mail Adresinizi Giriniz">
+                    <input class="form-control" type="email" id="emailaddress" name="Email" required placeholder="Mail Adresinizi Giriniz">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Şifre</label>
                     <div class="input-group input-group-merge">
-                        <input type="password" id="password" class="form-control" placeholder="Şifrenizi Giriniz">
+                        <input type="password" id="password" name="Password" class="form-control" placeholder="Şifrenizi Giriniz">
                         <div class="input-group-append" data-password="false">
                             <div class="input-group-text">
                                 <span class="password-eye"></span>
@@ -44,14 +44,29 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="checkbox-signup">
-                        <label class="custom-control-label" for="checkbox-signup">Kabul Ediyorum <a href="#" class="text-muted">Şartlar Ve Koşullar</a></label>
-                    </div>
+                    <label for="fullname">Şirket İsmi</label>
+                    <input class="form-control" type="text" id="companyName" name="CompanyName" placeholder="Şirket İsmi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullname">Vergi No</label>
+                    <input class="form-control" type="text" id="taxNumber" name="TaxNumber" placeholder="Vergi No" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullname">Adres</label>
+                    <input class="form-control" type="text" id="adress" name="Adress" placeholder="Vergi No" required>
                 </div>
 
                 <div class="form-group mb-0 text-center">
                     <button class="btn btn-primary" type="submit"> Kayıt </button>
+                </div>
+
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="checkbox-signup">
+                        <label class="custom-control-label" for="checkbox-signup">Kabul Ediyorum <a href="#" class="text-muted">Şartlar Ve Koşullar</a></label>
+                    </div>
                 </div>
 
             </form>

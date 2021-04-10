@@ -28,15 +28,15 @@ namespace MvcUICore.Controllers
            
             var result = HttpService.Post("Auth", "login", user);
 
-            if (result != null)
+            if (string.IsNullOrEmpty(result) || result.Equals("\"Kullanıcı veya Sifre Hatali\""))
             {
-                HttpContext.Session.SetString("login", "1");
-                return Redirect("/Home/Index");
+                HttpContext.Session.SetString("login", "0");
+                return RedirectToAction("Login");                
             }
             else
             {
-                HttpContext.Session.SetString("login","0");
-                return RedirectToAction("Login");
+                HttpContext.Session.SetString("login", "1");
+                return Redirect("/Home/Index");
             }
         }
 
@@ -47,7 +47,13 @@ namespace MvcUICore.Controllers
         }
 
         public IActionResult Register()
+        {           
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Register(UserForRegisterDto userForRegisterDto)
         {
+            var result = HttpService.Post("Auth", "register", userForRegisterDto);
             return View();
         }
 
