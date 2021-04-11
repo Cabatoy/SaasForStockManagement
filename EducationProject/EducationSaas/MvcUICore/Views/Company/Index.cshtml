@@ -59,7 +59,7 @@ Müşteri Listesi
                 </td>
                 <td>
                     <div class="row icons-list-demo">
-                        <div class="col-sm-6 col-md-4 col-lg-3"><i class="dripicons-trash"></i></div>
+                        <div class="col-sm-6 col-md-4 col-lg-3"><span onclick="companyDelete(@item.Id)" value="@item.Id" class="dripicons-trash"></span></div>
                     </div>
                 </td>
             </tr>
@@ -71,7 +71,6 @@ Müşteri Listesi
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
 
     function companyUpdate(i) {
         //alert(i);
@@ -86,6 +85,31 @@ Müşteri Listesi
             dataType: "json",
             data: { id: i, name: name, taxno: taxno, adress: adress },
             success: function (data) {
+                if (data.result == 1) {
+                    alert("Başarılı!");
+                    location.reload(); 
+                //alert(data.message);
+                }
+                    
+                else
+                    alert("Başarısız!");
+            }
+        });        
+    }
+
+    function companyDelete(i) {
+        //alert(i);
+        var name = document.getElementById("fullName").value;
+        var taxno = document.getElementById("taxNumber").value;
+        var adress = document.getElementById("adress").value;
+
+        $.ajax({
+            url: "/Company/Delete",
+            type: "POST",
+            async: false,
+            dataType: "json",
+            data: { id: i, name: name, taxno: taxno, adress: adress },
+            success: function (data) {
                 if (data.result == 1)
                     alert("Başarılı!");
                 //alert(data.message);
@@ -93,24 +117,7 @@ Müşteri Listesi
                     alert("Başarısız!");
             }
         });
-        
     }
 
 
-
-
-
-
-    //$.ajax({
-    //    url: "/Company/Update",
-    //    type: "POST",
-    //    dataType: "json",
-    //    data: { commentId: id },
-    //    success: function (data) {
-    //        if (data.result == 1)
-    //            alert(data.message);
-    //        else
-    //            alert("Onaylama Başarısız!");
-    //    }
-    //});
 </script>

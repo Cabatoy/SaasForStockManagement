@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Web;
 
@@ -57,6 +58,7 @@ namespace MvcUICore.Utility.Api
                 HttpResponseMessage response = client.GetAsync(requestUri + "/" + id.ToString()).Result;
                 if (response.IsSuccessStatusCode)
                 {
+                    result = response.Content.ReadAsStringAsync().Result;
                     //if (response.Content.Headers.ContentLength <= 4)
                     //    result = string.Empty;
                     //else
@@ -83,7 +85,7 @@ namespace MvcUICore.Utility.Api
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                HttpResponseMessage response = client.PostAsync(requestUri, content).Result;
+                HttpResponseMessage response = client.PostAsync(requestUri,content).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     //if (response.Content.Headers.ContentLength <= 4)
@@ -95,6 +97,62 @@ namespace MvcUICore.Utility.Api
                 else
                 {
                     result = response.Content.ReadAsStringAsync().Result;
+                }
+            }
+            return result;
+        }
+
+        public static string Delete(string controllerName, string requestUri, int id)
+        {
+            var httpHandler = new HttpClientHandler();
+            httpHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            string result = string.Empty;
+            using (var client = new HttpClient(httpHandler))
+            {
+                client.BaseAddress = new Uri(url.AbsoluteUri+"/"+ controllerName + "/");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                //var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+                //content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                HttpResponseMessage response = client.DeleteAsync(requestUri + "/" + id.ToString()).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    result = response.Content.ReadAsStringAsync().Result;
+                    //if (response.Content.Headers.ContentLength <= 4)
+                    //    result = string.Empty;
+                    //else
+                    //    result = response.Content.ReadAsAsync<object>().Result.ToString();
+                }
+            }
+            return result;
+        }
+
+        public static string Update(string controllerName, string requestUri, object model)
+        {
+            var httpHandler = new HttpClientHandler();
+            httpHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+            string result = string.Empty;
+            using (var client = new HttpClient(httpHandler))
+            {
+                client.BaseAddress = new Uri(url.AbsoluteUri+"/" + controllerName + "/");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var content = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                HttpResponseMessage response = client.PutAsync(requestUri, content).Result;
+                //HttpResponseMessage response = client.PutAsJsonAsync(requestUri, model).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    result = response.Content.ReadAsStringAsync().Result;
+                    //if (response.Content.Headers.ContentLength <= 4)
+                    //    result = string.Empty;
+                    //else
+                    //    result = response.Content.ReadAsAsync<object>().Result.ToString();
                 }
             }
             return result;

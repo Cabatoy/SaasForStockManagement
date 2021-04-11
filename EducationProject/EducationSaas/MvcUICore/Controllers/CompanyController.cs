@@ -26,11 +26,30 @@ namespace MvcUICore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(int id,string name, int taxno,string adress)
+        public IActionResult Update(int id, string name, int taxno, string adress)
         {
+            Company company = new Company();
+            company.Id = id;
+            company.FullName = name;
+            company.TaxNumber = taxno.ToString();
+            company.Adress = adress;
+
+            var result = HttpService.Update("companies", "update", company);           
+
+            return Json(new { result = 1, message = result });
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id, string name, int taxno, string adress)
+        {
+            //buralar bi düzenlenecek
+            //sadece id gönderirsek, bu şekilde company modeli çekmemiz gerek veya- model göndermeye bakmak lazım.,
+            var result = HttpService.Get("companies", "getById", id);
+            var company = JsonConvert.DeserializeObject<Company>(result);
+
+            //company model göndermede sorun yaşadım,(DeleteAsync) ,
+            HttpService.Delete("companies", "delete", id);
             return Json(new { result = 1, message = "Başarılı." });
-            //var result = HttpService.Post("companies", "add", company);
-            //return Redirect("index");
         }
     }
 }

@@ -33,6 +33,7 @@ namespace WebCoreApi.Controllers
         }
      
         [HttpGet(template: "getById")]
+        [Route("GetById/{companyId:int}")]
         public IActionResult GetById(int companyId)
         {
             var result = _companyService.GetById(companyId);
@@ -57,7 +58,8 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
 
-        [HttpPost(template: "update")]
+        ///[HttpPost(template: "update")]
+        [HttpPut(template: "update")]
         public IActionResult Update(Company company)
         {
             var result = _companyService.Update(company);
@@ -68,16 +70,18 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
+
         [HttpPost(template: "delete")]
-        public IActionResult Delete(Company company)
+        [Route("Delete/{id:int}")]
+        public IActionResult Delete(int id)
         {
-            var result = _companyService.Delete(company);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            else
-                return BadRequest(result.Message);
+            //var result = _companyService.Delete(company);
+            //if (result.Success)
+            //{
+                return Ok();
+            //}
+            //else
+            //    return BadRequest(result.Message);
         }
         [HttpPost(template: "Transaction")]
         public IActionResult TransactionTest(Company company)
