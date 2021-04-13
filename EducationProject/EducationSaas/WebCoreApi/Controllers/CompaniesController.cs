@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Extensions;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -16,7 +16,8 @@ namespace WebCoreApi.Controllers
         {
             _companyService = companyService;
         }
-    
+
+
         [HttpGet(template: "getall")]
         //[Authorize()]
         //[Authorize(Roles = "Company.List,asdas,asdasda,")]

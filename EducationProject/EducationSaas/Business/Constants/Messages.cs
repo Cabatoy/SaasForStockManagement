@@ -49,5 +49,6 @@ namespace Business.Constant
         #endregion
 
 
+        public static string? AuthorizationDenied = "Yetkiniz Bu İşlemi Yapmaya Uygun Değil.";
     }
 }

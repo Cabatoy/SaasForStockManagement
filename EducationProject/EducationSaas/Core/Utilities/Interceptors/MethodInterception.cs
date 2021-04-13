@@ -36,7 +36,7 @@ namespace Core.Utilities.Interceptors
             {
                 invocation.Proceed(); //operasyonu calistir
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 isSuccess = false;
                 OnException(invocation);

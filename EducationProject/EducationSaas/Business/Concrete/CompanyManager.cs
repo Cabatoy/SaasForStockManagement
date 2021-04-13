@@ -6,12 +6,13 @@ using DataAccess.Concrete.EntityFrameWork;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
-
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspect.Autfac.Transaction;
 using Core.CrossCuttingConcern.Validation;
 using Core.Aspect.Autfac.Validation;
 using Core.Aspect.Autofac.Caching;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
 {
@@ -45,6 +46,8 @@ namespace Business.Concrete
             return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId));
         }
 
+
+        [SecuredOperation("Company.List")]
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
         public IDataResult<List<Company>> GetList()
         {

@@ -36,7 +36,8 @@ namespace WebCoreApi.Controllers
             }
             return BadRequest(result.Message);
 
-        } [HttpPost("register")]
+        }
+        [HttpPost("register")]
         public ActionResult Register(UserForRegisterDto userForRegisterDto)
         {
             var userExist = _authService.UserExist(userForRegisterDto.Email);
