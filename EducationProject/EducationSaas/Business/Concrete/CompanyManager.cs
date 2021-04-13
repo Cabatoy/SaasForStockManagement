@@ -12,6 +12,7 @@ using Core.Aspect.Autfac.Transaction;
 using Core.CrossCuttingConcern.Validation;
 using Core.Aspect.Autfac.Validation;
 using Core.Aspect.Autofac.Caching;
+using Core.Aspect.Autofac.Performance;
 using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
@@ -41,14 +42,16 @@ namespace Business.Concrete
             return new SuccessResult(message: Messages.CompanyDeleted);
         }
 
+      
         public IDataResult<Company> GetById(int CompanyId)
         {
             return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId));
         }
 
-
+        
         [SecuredOperation("Company.List")]
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
+        [PerformanceAspect(interval: 5)]
         public IDataResult<List<Company>> GetList()
         {
             return new SuccessDataResult<List<Company>>(_companyDal.GetList());

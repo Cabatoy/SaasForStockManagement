@@ -38,7 +38,7 @@ namespace Business.Constant
         public static string PasswordError = "Kullanıcı veya Sifre Hatali";
         public static string SuccessfullLogin = "Sisteme Giris Basarili";
         public static string UserAlreadyExist = "Kullanıcı daha önce kayıt olmuştur.";
-        public static string AccessTokenCreated= "Token Oluşturuldu.";
+        public static string AccessTokenCreated = "Token Oluşturuldu.";
 
 
         #region ValidationMessages
@@ -49,6 +49,6 @@ namespace Business.Constant
         #endregion
 
 
-        public static string? AuthorizationDenied = "Yetkiniz Bu İşlemi Yapmaya Uygun Değil.";
+        public static string AuthorizationDenied = "Yetkiniz Bu İşlemi Yapmaya Uygun Değil.";
     }
 }

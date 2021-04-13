@@ -22,7 +22,7 @@ namespace Core.Aspect.Autofac.Caching
             _cacheManager = ServiceTool.ServiceProvider.GetService<ICacheManager>();
         }
 
-        protected override void OnSuccess(IInvocation ınvocation)
+        protected override void OnSuccess(IInvocation invocation)
         {
             _cacheManager.RemoveByPattern(_pattern);
         }
