@@ -2,7 +2,7 @@
 
 using FluentValidation;
 
-namespace Core.CrossCuttingConcern.Validation
+namespace Core.CrossCuttingConcerns.Validation
 {
     public static class ValidationTool
     {

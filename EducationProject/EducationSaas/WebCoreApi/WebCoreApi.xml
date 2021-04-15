@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebCoreApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.GetList">
+            <summary>
+            Get All Companies..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.Update(Entities.Concrete.Company)">
+            [HttpPost(template: "update")]
+        </member>
+    </members>
+</doc>

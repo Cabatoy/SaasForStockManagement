@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.CrossCuttingConcern.Caching
+namespace Core.CrossCuttingConcerns.Caching
 {
     public interface ICacheManager
     {

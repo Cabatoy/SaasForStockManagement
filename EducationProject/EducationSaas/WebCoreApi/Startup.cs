@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.Extensions;
 using Core.Utilities.IoC;
+using NSwag;
 
 namespace WebCoreApi
 {
@@ -36,7 +37,8 @@ namespace WebCoreApi
             //services.AddMemoryCache();
             services.AddControllers();
             services.AddCors(options =>
-            {//normalde localhost yerine domain gelecek.
+            {
+                //normalde localhost yerine domain gelecek.
                 options.AddPolicy("AllowOrigin",
                     builder => builder.WithOrigins("http://localhost:3000"));
             });
@@ -62,6 +64,22 @@ namespace WebCoreApi
                 new CoreModule()
             });
 
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = (doc =>
+                {
+                    doc.Info.Title = "SaasForEducationApi Doc.";
+                    doc.Info.Version = "13.0.1.3";
+                    doc.Info.Contact = new OpenApiContact()
+                    {
+                        Name = "Çahatay Özdemir",
+                        Url = "",
+                        Email = "cahatayozdemir@gmail.com",
+                    };
+                });
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,12 +102,14 @@ namespace WebCoreApi
             //anahtar(eve giris) giris bilgileri ile login saglamak icin
             app.UseAuthorization();
 
-
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

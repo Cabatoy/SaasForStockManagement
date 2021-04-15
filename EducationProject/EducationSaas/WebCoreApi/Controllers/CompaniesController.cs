@@ -18,6 +18,10 @@ namespace WebCoreApi.Controllers
         }
 
 
+        /// <summary>
+        /// Get All Companies..
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(template: "getall")]
         //[Authorize()]
         //[Authorize(Roles = "Company.List,asdas,asdasda,")]
