@@ -6,12 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebCoreApi.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CompaniesController : ControllerBase
     {
         private ICompanyService _companyService;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="companyService"></param>
         public CompaniesController(ICompanyService companyService)
         {
             _companyService = companyService;
@@ -37,6 +43,11 @@ namespace WebCoreApi.Controllers
 
         }
      
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="companyId"></param>
+        /// <returns></returns>
         [HttpGet(template: "getById")]
         [Route("GetById/{companyId:int}")]
         public IActionResult GetById(int companyId)
@@ -50,7 +61,11 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
         [HttpPost(template: "add")]
         public IActionResult Add (Company company)
         {
@@ -62,8 +77,13 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
-
-        ///[HttpPost(template: "update")]
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
+        //[HttpPost(template: "update")]
         [HttpPut(template: "update")]
         public IActionResult Update(Company company)
         {
@@ -75,7 +95,11 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost(template: "delete")]
         [Route("Delete/{id:int}")]
         public IActionResult Delete(int id)
@@ -88,6 +112,11 @@ namespace WebCoreApi.Controllers
             //else
             //    return BadRequest(result.Message);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
         [HttpPost(template: "Transaction")]
         public IActionResult TransactionTest(Company company)
         {

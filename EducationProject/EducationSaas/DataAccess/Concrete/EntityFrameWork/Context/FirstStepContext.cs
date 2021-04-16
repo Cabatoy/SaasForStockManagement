@@ -20,9 +20,6 @@ namespace DataAccess.Concrete.EntityFrameWork
         }
 
         public DbSet<Company> Company { get; set; }
-        //public DbSet<Database> Databases { get; set; }
-        //public DbSet<Licence> Licence { get; set; }
-        //public DbSet<Local> Local { get; set; }
         public DbSet<OperationClaim> OperationClaim { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
         public DbSet<User> User { get; set; }

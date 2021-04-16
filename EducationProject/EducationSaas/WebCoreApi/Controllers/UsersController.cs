@@ -20,6 +20,11 @@ namespace WebCoreApi.Controllers
             _userService = userService;
         }
 
+
+        /// <summary>
+        /// Take All Users
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(template: "getall")]
         public IActionResult GetList()
         {
@@ -33,6 +38,12 @@ namespace WebCoreApi.Controllers
 
         }
 
+
+        /// <summary>
+        /// Take User With Id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         //[HttpGet(template: "getById")]
         [HttpGet]
         [Route("GetById/{userId:int}")]
@@ -47,40 +58,42 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
 
+        #region pasif
 
-        [HttpPost(template: "add")]
-        public IActionResult Add(User user)
-        {
-            var result = _userService.Add(user);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            else
-                return BadRequest(result.Message);
-        }
+        //[HttpPost(template: "add")]
+        //public IActionResult Add(User user)
+        //{
+        //    var result = _userService.Add(user);
+        //    if (result.Success)
+        //    {
+        //        return Ok(result.Message);
+        //    }
+        //    else
+        //        return BadRequest(result.Message);
+        //}
 
-        [HttpPost(template: "update")]
-        public IActionResult Update(User user)
-        {
-            var result = _userService.Update(user);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            else
-                return BadRequest(result.Message);
-        }
-        [HttpPost(template: "delete")]
-        public IActionResult Delete(User user)
-        {
-            var result = _userService.Delete(user);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            else
-                return BadRequest(result.Message);
-        }
+        //[HttpPost(template: "update")]
+        //public IActionResult Update(User user)
+        //{
+        //    var result = _userService.Update(user);
+        //    if (result.Success)
+        //    {
+        //        return Ok(result.Message);
+        //    }
+        //    else
+        //        return BadRequest(result.Message);
+        //}
+        //[HttpPost(template: "delete")]
+        //public IActionResult Delete(User user)
+        //{
+        //    var result = _userService.Delete(user);
+        //    if (result.Success)
+        //    {
+        //        return Ok(result.Message);
+        //    }
+        //    else
+        //        return BadRequest(result.Message);
+        //} 
+        #endregion
     }
 }
