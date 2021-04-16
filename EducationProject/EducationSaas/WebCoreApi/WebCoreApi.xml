@@ -4,14 +4,96 @@
         <name>WebCoreApi</name>
     </assembly>
     <members>
+        <member name="T:WebCoreApi.Controllers.AuthController">
+            <summary>
+            Login,Register system
+            </summary>
+        </member>
+        <member name="M:WebCoreApi.Controllers.AuthController.#ctor(Business.Abstract.IAuthService)">
+            <summary>
+            
+            </summary>
+            <param name="authService"></param>
+        </member>
+        <member name="M:WebCoreApi.Controllers.AuthController.Login(Entities.Dtos.UserForLoginDto)">
+            <summary>
+            For Login and jwt
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.AuthController.Register(Entities.Dtos.UserForRegisterDto)">
+            <summary>
+            for first register or creating users
+            if companyId and LocalId is different from 0 , it means ; creating a user otherwise you will make first register process
+            </summary>
+            <param name="userForRegisterDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebCoreApi.Controllers.CompaniesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.#ctor(Business.Abstract.ICompanyService)">
+            <summary>
+            
+            </summary>
+            <param name="companyService"></param>
+        </member>
         <member name="M:WebCoreApi.Controllers.CompaniesController.GetList">
             <summary>
             Get All Companies..
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.GetById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.Add(Entities.Concrete.Company)">
+            <summary>
+            
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebCoreApi.Controllers.CompaniesController.Update(Entities.Concrete.Company)">
-            [HttpPost(template: "update")]
+            <summary>
+            
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompaniesController.TransactionTest(Entities.Concrete.Company)">
+            <summary>
+            
+            </summary>
+            <param name="company"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.UsersController.GetList">
+            <summary>
+            Take All Users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.UsersController.GetById(System.Int32)">
+            <summary>
+            Take User With Id
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

@@ -15,6 +15,8 @@ using Core.Aspect.Autofac.Caching;
 using Core.Aspect.Autofac.Logging;
 using Core.Aspect.Autofac.Performance;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.Utilities.Business;
+using log4net.Util;
 using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
@@ -23,10 +25,12 @@ namespace Business.Concrete
     public class CompanyManager : ICompanyService
     {
         private ICompanyDal _companyDal;
+        private IAuthService _authService;//kullaniciyi da ilk anda eklemek istersek.
 
-        public CompanyManager(ICompanyDal companyDal)
+        public CompanyManager(ICompanyDal companyDal, IAuthService authService)
         {
             _companyDal = companyDal;
+            _authService = authService;
         }
 
         [ValidatonAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
@@ -35,8 +39,22 @@ namespace Business.Concrete
         public IResult Add(Company company)
         {
             // ValidationTool.Validate(new CompanyValidator(), company);
+            IResult result = BusinessRules.Run(CheckCompanyTaxNumberExist(company.TaxNumber));
+            if (result != null)
+            {
+                return result;
+            }
             _companyDal.Add(company);
             return new SuccessResult(message: Messages.CompanyAdded);
+        }
+
+        private IResult CheckCompanyTaxNumberExist(string companyTaxNumber)
+        {
+            if (_companyDal.Get(p => p.TaxNumber == companyTaxNumber) != null)
+            {
+                return new ErrorResult(message: Messages.CompanyTaxNumberExistError);
+            }
+            return new SuccessResult();
         }
 
         public IResult Delete(Company company)
@@ -55,7 +73,7 @@ namespace Business.Concrete
         [SecuredOperation("Company.List")]
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
         [PerformanceAspect(interval: 5)]
-        [LogAspect(typeof(DatabaseLogger))] 
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<List<Company>> GetList()
         {
             return new SuccessDataResult<List<Company>>(_companyDal.GetList());
@@ -71,8 +89,8 @@ namespace Business.Concrete
         [TransactionScopeAspect]
         public IResult TransactionalOperation(Company company)
         {
-            _companyDal.Update(company);
-            _companyDal.Add(company);
+            //_companyDal.Update(company);
+            //_companyDal.Add(company);
             return new SuccessResult(message: "test");
         }
     }

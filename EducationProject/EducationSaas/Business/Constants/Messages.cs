@@ -50,5 +50,7 @@ namespace Business.Constant
 
 
         public static string AuthorizationDenied = "Yetkiniz Bu İşlemi Yapmaya Uygun Değil.";
+
+        public static string CompanyTaxNumberExistError = "Firma Daha Önce Kayıt Edilmiştir.";
     }
 }

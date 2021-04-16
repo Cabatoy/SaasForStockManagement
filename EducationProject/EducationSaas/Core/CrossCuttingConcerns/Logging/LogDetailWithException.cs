@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Core.CrossCuttingConcerns.Logging
 {
-    public class LogDetail
+    public class LogDetailWithException : LogDetail
     {
-        public string MethodName { get; set; }
-        public List<LogParameter> LogParameters { get; set; }
-
-       
-
+        public string ExceptionMessage { get; set; }
     }
 }

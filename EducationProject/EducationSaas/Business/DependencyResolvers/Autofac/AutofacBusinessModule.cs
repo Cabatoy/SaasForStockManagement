@@ -24,15 +24,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
             builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
 
-            builder.RegisterType<DatabasesManager>().As<IDatabasesService>();
-            builder.RegisterType<EfDatabasesDal>().As<IDatabasesDal>();
-
-
-            builder.RegisterType<LicenceManager>().As<ILicenceService>();
-            builder.RegisterType<EfLicenceDal>().As<ILicenceDal>();
-
-            builder.RegisterType<LocalsManager>().As<ILocalsService>();
-            builder.RegisterType<EfLocalsDal>().As<ILocalsDal>();
+           
 
             #endregion
 
@@ -62,6 +54,7 @@ namespace Business.DependencyResolvers.Autofac
                     Selector = new AspectInterceptorSelector()
 
                 }).SingleInstance();
+
 
         }
     }

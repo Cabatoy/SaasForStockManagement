@@ -11,5 +11,6 @@ namespace Core.Utilities.Messages
 
         public static string WrongValidatonType = "Hatali Validation Tipi";
         public static string WrongLogType = "Hatali Log Tipi";
+
     }
 }

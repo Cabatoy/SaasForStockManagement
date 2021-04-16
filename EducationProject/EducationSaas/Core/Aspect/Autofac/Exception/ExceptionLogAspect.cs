@@ -9,51 +9,48 @@ using Core.CrossCuttingConcerns.Logging.Log4Net;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Messages;
 
-namespace Core.Aspect.Autofac.Logging
+namespace Core.Aspect.Autofac.Exception
 {
-    public class LogAspect : MethodInterception
+    public class ExceptionLogAspect : MethodInterception
     {
         private LoggerServiceBase _loggerServiceBase;
 
-        public LogAspect(Type loggerService)
+        public ExceptionLogAspect(Type loggerService)
         {
             if (loggerService.BaseType != typeof(LoggerServiceBase))
             {
                 throw new System.Exception(AspectMessages.WrongLogType);
             }
+
             _loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
         }
-
-        protected override void OnAfter(IInvocation invocation)
+        protected override void OnException(IInvocation invocation, System.Exception e)
         {
-            _loggerServiceBase.Info(GetLogDetail(invocation));
+            LogDetailWithException logDetailWithException = GetLogDetail(invocation);
+            logDetailWithException.ExceptionMessage = e.Message;
+            _loggerServiceBase.Error(logDetailWithException);
         }
 
-        //protected override void OnAfter(IInvocation invocation)
-        //{
-        //    _loggerServiceBase.Info(GetLogDetail(invocation));
-        //}
-
-        private LogDetail GetLogDetail(IInvocation invocation)
+        private LogDetailWithException GetLogDetail(IInvocation invocation)
         {
-            var logParameters = new List<LogParameter>();
+            var logparameters = new List<LogParameter>();
             for (int i = 0; i < invocation.Arguments.Length; i++)
             {
-                logParameters.Add(new LogParameter
+                logparameters.Add(new LogParameter
                 {
                     Name = invocation.GetConcreteMethod().GetParameters()[i].Name,
                     Value = invocation.Arguments[i],
                     Type = invocation.Arguments[i].GetType().Name
                 });
             }
-            
-            var logDetail = new LogDetail
+
+            var logDetailWithException = new LogDetailWithException
             {
                 MethodName = invocation.Method.Name,
-                LogParameters = logParameters
-            };
-            return logDetail;
+                LogParameters = logparameters
 
+            };
+            return logDetailWithException;
         }
     }
 }
