@@ -14,6 +14,7 @@ namespace WebCoreApi.Controllers
     public class CompaniesController : ControllerBase
     {
         private ICompanyService _companyService;
+      
         /// <summary>
         /// 
         /// </summary>
@@ -42,14 +43,14 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
 
         }
-     
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="companyId"></param>
         /// <returns></returns>
-        [HttpGet(template: "getById")]
-        [Route("GetById/{companyId:int}")]
+        [HttpGet(template: "getById/{companyId:int}")]
+        // [Route("GetById/{companyId:int}")]
         public IActionResult GetById(int companyId)
         {
             var result = _companyService.GetById(companyId);
@@ -67,7 +68,7 @@ namespace WebCoreApi.Controllers
         /// <param name="company"></param>
         /// <returns></returns>
         [HttpPost(template: "add")]
-        public IActionResult Add (Company company)
+        public IActionResult Add(Company company)
         {
             var result = _companyService.Add(company);
             if (result.Success)
@@ -77,7 +78,8 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
-        
+
+      
         /// <summary>
         /// 
         /// </summary>
@@ -95,6 +97,7 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
+      
         /// <summary>
         /// 
         /// </summary>
@@ -107,17 +110,18 @@ namespace WebCoreApi.Controllers
             //var result = _companyService.Delete(company);
             //if (result.Success)
             //{
-                return Ok();
+            return Ok();
             //}
             //else
             //    return BadRequest(result.Message);
         }
+       
         /// <summary>
-        /// 
+        /// Transaction ile yönetilecek süreçler için örnek komutlar
         /// </summary>
         /// <param name="company"></param>
         /// <returns></returns>
-        [HttpPost(template: "Transaction")]
+        [HttpPost(template: "transaction")]
         public IActionResult TransactionTest(Company company)
         {
             var result = _companyService.TransactionalOperation(company);
