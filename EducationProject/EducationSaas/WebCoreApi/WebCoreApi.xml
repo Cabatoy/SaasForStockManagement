@@ -11,7 +11,7 @@
         </member>
         <member name="M:WebCoreApi.Controllers.AuthController.#ctor(Business.Abstract.IAuthService)">
             <summary>
-            
+            login-token-kullanıcı işlemleri.
             </summary>
             <param name="authService"></param>
         </member>
@@ -78,17 +78,58 @@
         </member>
         <member name="M:WebCoreApi.Controllers.CompaniesController.Delete(Entities.Concrete.Company)">
             <summary>
-            
+            Silme işlemi ilgili kolona 
+            update şeklinde olur.
             </summary>
-            <param name="id"></param>
+            <param name="company">firma ID</param>
             <returns></returns>
         </member>
-        <member name="M:WebCoreApi.Controllers.CompaniesController.TransactionTest(Entities.Concrete.Company)">
+        <member name="T:WebCoreApi.Program">
             <summary>
-            Transaction ile yönetilecek süreçler için örnek komutlar
+            programCs
             </summary>
-            <param name="company"></param>
+        </member>
+        <member name="M:WebCoreApi.Program.Main(System.String[])">
+            <summary>
+            main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:WebCoreApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
             <returns></returns>
+        </member>
+        <member name="T:WebCoreApi.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebCoreApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:WebCoreApi.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:WebCoreApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+             This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:WebCoreApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
         </member>
     </members>
 </doc>

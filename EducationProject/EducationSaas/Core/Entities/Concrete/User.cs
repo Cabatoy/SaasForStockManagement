@@ -9,7 +9,6 @@
         public string Email { get; set; }
         public byte[] PassWordSalt { get; set; }
         public byte[] PassWordHash { get; set; }
-        public int RoleId { get; set; }
         public bool Deleted { get; set; }
     }
 }

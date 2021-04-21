@@ -7,7 +7,6 @@
   <ItemGroup>
     <Compile Remove="Concrete\Database.cs" />
     <Compile Remove="Concrete\Licence.cs" />
-    <Compile Remove="Concrete\Local.cs" />
   </ItemGroup>
 
   <ItemGroup>

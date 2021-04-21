@@ -16,6 +16,7 @@ using Core.Aspect.Autofac.Logging;
 using Core.Aspect.Autofac.Performance;
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Business;
+using Entities.Dtos;
 using log4net.Util;
 using Microsoft.AspNetCore.Http;
 
@@ -24,16 +25,15 @@ namespace Business.Concrete
 
     public class CompanyManager : ICompanyService
     {
-        private ICompanyDal _companyDal;
-        private IAuthService _authService;//kullaniciyi da ilk anda eklemek istersek.
+        private readonly ICompanyDal _companyDal;
+     
 
-        public CompanyManager(ICompanyDal companyDal, IAuthService authService)
+        public CompanyManager(ICompanyDal companyDal)
         {
             _companyDal = companyDal;
-            _authService = authService;
         }
 
-        [ValidatonAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
+        [ValidationAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
         [CasheRemoveAspect("ICompanyService.Get()")] //getlist ile daha once cache a alinmis veriyi siler daha dogrusu ICompanyService.Get iceren her boku siler
         [LogAspect(typeof(DatabaseLogger))]
         public IResult Add(Company company)
@@ -45,32 +45,33 @@ namespace Business.Concrete
                 return result;
             }
             _companyDal.Add(company);
+
             return new SuccessResult(message: Messages.CompanyAdded);
         }
 
         private IResult CheckCompanyTaxNumberExist(string companyTaxNumber)
         {
-            if (_companyDal.Get(p => p.TaxNumber == companyTaxNumber) != null)
+            if (_companyDal.GetList(p => p.TaxNumber == companyTaxNumber).Count != 0)
             {
                 return new ErrorResult(message: Messages.CompanyTaxNumberExistError);
             }
             return new SuccessResult();
         }
-
+     
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Delete(Company company)
         {
             _companyDal.Delete(company);
             return new SuccessResult(message: Messages.CompanyDeleted);
         }
-
-
+     
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<Company> GetById(int CompanyId)
         {
             return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId));
         }
 
-
-        [SecuredOperation("Company.List")]
+        //[SecuredOperation("Company.List")]
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
         [PerformanceAspect(interval: 5)]
         [LogAspect(typeof(DatabaseLogger))]
@@ -78,20 +79,14 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Company>>(_companyDal.GetList());
         }
-
-
-
+       
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Update(Company company)
         {
             _companyDal.Update(company);
             return new SuccessResult(message: Messages.CompanyUpdated);
         }
-        [TransactionScopeAspect]
-        public IResult TransactionalOperation(Company company)
-        {
-            //_companyDal.Update(company);
-            //_companyDal.Add(company);
-            return new SuccessResult(message: "test");
-        }
+
+
     }
 }

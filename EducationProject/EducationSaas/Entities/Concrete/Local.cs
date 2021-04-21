@@ -12,7 +12,6 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int CompanyId { get; set; }
         public string FullName { get; set; }
-
-
+        public bool Deleted { get; set; }
     }
 }

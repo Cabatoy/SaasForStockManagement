@@ -21,7 +21,7 @@ namespace Core.Utilities.Interceptors
                 type.GetMethod(method.Name).GetCustomAttributes<MethodInterceptionBaseAttiribute>(true);
             classAttribute.AddRange(methodAttribute);
             classAttribute.Add(new ExceptionLogAspect(typeof(DatabaseLogger)));
-            classAttribute.Add(new ExceptionLogAspect(typeof(FileLogger)));
+            //  classAttribute.Add(new ExceptionLogAspect(typeof(FileLogger)));
             return classAttribute.OrderBy(x => x.Priority).ToArray();
         }
     }

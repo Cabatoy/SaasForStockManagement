@@ -13,7 +13,7 @@ namespace WebCoreApi.Controllers
     [ApiController]
     public class CompaniesController : ControllerBase
     {
-        private ICompanyService _companyService;
+        private readonly ICompanyService _companyService;
 
         /// <summary>
         /// 
@@ -99,16 +99,17 @@ namespace WebCoreApi.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Silme işlemi ilgili kolona 
+        /// update şeklinde olur.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="company">firma ID</param>
         /// <returns></returns>
         [HttpPost(template: "delete")]
         //  [Route("Delete")]
         public IActionResult Delete(Company company)
         {
 
-            var result = _companyService.Update(PreaperForDelete(company));
+            var result = _companyService.Update(PrepareForDelete(company));
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -117,7 +118,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
 
-        private Company PreaperForDelete(Company company)
+        private static Company PrepareForDelete(Company company)
         {
             if (company.Deleted)
                 return company;
@@ -129,21 +130,5 @@ namespace WebCoreApi.Controllers
             return company;
         }
 
-        /// <summary>
-        /// Transaction ile yönetilecek süreçler için örnek komutlar
-        /// </summary>
-        /// <param name="company"></param>
-        /// <returns></returns>
-        [HttpPost(template: "transaction")]
-        public IActionResult TransactionTest(Company company)
-        {
-            var result = _companyService.TransactionalOperation(company);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            else
-                return BadRequest(result.Message);
-        }
     }
 }

@@ -24,7 +24,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
             builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
 
-           
+            builder.RegisterType<LocalManager>().As<ILocalService>();
+            builder.RegisterType<EfLocalDal>().As<ILocalDal>();
 
             #endregion
 
@@ -50,10 +51,10 @@ namespace Business.DependencyResolvers.Autofac
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces().EnableInterfaceInterceptors(new ProxyGenerationOptions()
-                {
-                    Selector = new AspectInterceptorSelector()
+            {
+                Selector = new AspectInterceptorSelector()
 
-                }).SingleInstance();
+            }).SingleInstance();
 
 
         }

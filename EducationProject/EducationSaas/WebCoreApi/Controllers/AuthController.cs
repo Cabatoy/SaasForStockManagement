@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
+using DataAccess.Abstract;
 using Entities.Dtos;
 
 namespace WebCoreApi.Controllers
@@ -16,10 +17,11 @@ namespace WebCoreApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private IAuthService _authService;
+        private readonly IAuthService _authService;
+      
 
         /// <summary>
-        /// 
+        /// login-token-kullanıcı işlemleri.
         /// </summary>
         /// <param name="authService"></param>
         public AuthController(IAuthService authService)
@@ -33,7 +35,7 @@ namespace WebCoreApi.Controllers
         /// <param name="user"></param>
         /// <returns></returns>
         [HttpPost("login")]
-        public ActionResult Login(UserForLoginDto user)
+        public IActionResult Login(UserForLoginDto user)
         {
             var userToLogin = _authService.Login(user);
             if (!userToLogin.Success)
@@ -57,7 +59,7 @@ namespace WebCoreApi.Controllers
         /// <param name="userForRegisterDto"></param>
         /// <returns></returns>
         [HttpPost("register")]
-        public ActionResult Register(UserForRegisterDto userForRegisterDto)
+        public IActionResult Register(UserForRegisterDto userForRegisterDto)
         {
             var userExist = _authService.UserExist(userForRegisterDto.Email);
             if (!userExist.Success)
@@ -84,23 +86,16 @@ namespace WebCoreApi.Controllers
         /// <param name="userForRegisterDto"></param>
         /// <returns></returns>
         [HttpPost("registerForCompany")]
-        public ActionResult RegisterForCompany(UserForRegisterDto userForRegisterDto)
+        public IActionResult RegisterForCompany(UserForRegisterDto userForRegisterDto)
         {
             var registerResult = _authService.RegisterForCompany(userForRegisterDto);
             if (registerResult.Success)
             {
                 if (registerResult.Success)
                 {
-                    return Ok(registerResult.Data);
+                    return Ok(registerResult);
                 }
                 return BadRequest(registerResult.Message);
-                //bu adımdan sonra giriş yapılmayacağı için buradan email ile kullanıcıya mail gönderilir token almayacak.
-                //var result = _authService.CreateAccessToken(registerResult.Data);
-                //if (result.Success)
-                //{
-                //    return Ok(result.Data);
-                //}
-                //return BadRequest(result.Message);
             }
             return BadRequest(registerResult.Message);
         }

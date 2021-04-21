@@ -14,7 +14,7 @@ namespace Business.ValidationRules.FluentValidation
         public CompanyValidator()
         {
             RuleFor(p => p.TaxNumber).NotEmpty().WithMessage(Messages.TaxNumberValidationError);
-            RuleFor(p => p.TaxNumber).Length(10,11).WithMessage(Messages.TaxNumberLengtValidationError);
+            RuleFor(p => p.TaxNumber).Length(10, 11).WithMessage(Messages.TaxNumberLengtValidationError);
             RuleFor(p => p.Id).GreaterThanOrEqualTo(10).When(p => p.FullName == "");
             RuleFor(p => p.Id).GreaterThanOrEqualTo(10).When(p => p.FullName == "");
             #region örnek kullanımlar commentli
@@ -22,9 +22,9 @@ namespace Business.ValidationRules.FluentValidation
             #endregion
         }
 
-        private bool StarWithWithA(string arg)
-        {
-            return arg.StartsWith("A");
-        }
+        //private static bool StarWithWithA(string arg)
+        //{
+        //    return arg.StartsWith("A");
+        //}
     }
 }

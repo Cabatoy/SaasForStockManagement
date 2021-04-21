@@ -7,7 +7,7 @@ using Core.Entities;
 
 namespace Entities.Dtos
 {
-    public class UserForRegisterDto : IDto
+    public class UserForRegisterDto : IDto, IEntity
     {
         public int CompanyId { get; set; }
         public int LocalId { get; set; }

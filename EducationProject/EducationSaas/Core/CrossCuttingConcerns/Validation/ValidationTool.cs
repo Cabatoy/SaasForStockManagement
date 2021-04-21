@@ -1,6 +1,9 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+using Core.Utilities.Results;
 using FluentValidation;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace Core.CrossCuttingConcerns.Validation
 {
@@ -12,10 +15,11 @@ namespace Core.CrossCuttingConcerns.Validation
             var result = validator.Validate(context);
             if (!result.IsValid)
             {
-                // return new ErrorResult(message: result.Errors.ToString());
+                //return new ErrorResult(message: result.Errors.ToString());
                 throw new ValidationException(result.Errors);
             }
 
         }
+
     }
 }
