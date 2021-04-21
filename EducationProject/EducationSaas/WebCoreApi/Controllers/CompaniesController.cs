@@ -14,7 +14,7 @@ namespace WebCoreApi.Controllers
     public class CompaniesController : ControllerBase
     {
         private ICompanyService _companyService;
-      
+
         /// <summary>
         /// 
         /// </summary>
@@ -79,7 +79,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
 
-      
+
         /// <summary>
         /// 
         /// </summary>
@@ -97,25 +97,38 @@ namespace WebCoreApi.Controllers
             else
                 return BadRequest(result.Message);
         }
-      
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost(template: "delete")]
-        [Route("Delete/{id:int}")]
-        public IActionResult Delete(int id)
+        //  [Route("Delete")]
+        public IActionResult Delete(Company company)
         {
-            //var result = _companyService.Delete(company);
-            //if (result.Success)
-            //{
-            return Ok();
-            //}
-            //else
-            //    return BadRequest(result.Message);
+
+            var result = _companyService.Update(PreaperForDelete(company));
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            else
+                return BadRequest(result.Message);
         }
-       
+
+        private Company PreaperForDelete(Company company)
+        {
+            if (company.Deleted)
+                return company;
+            else
+            {
+                company.Deleted = true;
+            }
+
+            return company;
+        }
+
         /// <summary>
         /// Transaction ile yönetilecek süreçler için örnek komutlar
         /// </summary>

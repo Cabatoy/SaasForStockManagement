@@ -15,9 +15,9 @@ namespace WebCoreApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
-    {   
+    {
         private IAuthService _authService;
-       
+
         /// <summary>
         /// 
         /// </summary>
@@ -26,9 +26,9 @@ namespace WebCoreApi.Controllers
         {
             _authService = authService;
         }
-       
+
         /// <summary>
-        /// For Login and jwt
+        /// giriş için jwt token
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -49,10 +49,10 @@ namespace WebCoreApi.Controllers
             return BadRequest(result.Message);
 
         }
-       
+
         /// <summary>
-        /// for first register or creating users
-        /// if companyId and LocalId is different from 0 , it means ; creating a user otherwise you will make first register process
+        /// ilk firma kaydı için kullanılır.
+        /// companyid ve local id bos olur.kayit işleminden sonra dolar.
         /// </summary>
         /// <param name="userForRegisterDto"></param>
         /// <returns></returns>
@@ -73,6 +73,34 @@ namespace WebCoreApi.Controllers
                     return Ok(result.Data);
                 }
                 return BadRequest(result.Message);
+            }
+            return BadRequest(registerResult.Message);
+        }
+
+        /// <summary>
+        /// firmaya ait kullanıcı oluşturmak için kullanılır, firma ve local ıd dolu gönderilmeli
+        /// manager kısmında kullanıcı daha önce mail adresiyle kayıt yapılmış mıdır diye kontrol edilir.
+        /// </summary>
+        /// <param name="userForRegisterDto"></param>
+        /// <returns></returns>
+        [HttpPost("registerForCompany")]
+        public ActionResult RegisterForCompany(UserForRegisterDto userForRegisterDto)
+        {
+            var registerResult = _authService.RegisterForCompany(userForRegisterDto);
+            if (registerResult.Success)
+            {
+                if (registerResult.Success)
+                {
+                    return Ok(registerResult.Data);
+                }
+                return BadRequest(registerResult.Message);
+                //bu adımdan sonra giriş yapılmayacağı için buradan email ile kullanıcıya mail gönderilir token almayacak.
+                //var result = _authService.CreateAccessToken(registerResult.Data);
+                //if (result.Success)
+                //{
+                //    return Ok(result.Data);
+                //}
+                //return BadRequest(result.Message);
             }
             return BadRequest(registerResult.Message);
         }

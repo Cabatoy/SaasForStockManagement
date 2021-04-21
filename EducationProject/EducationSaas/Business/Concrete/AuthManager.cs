@@ -76,6 +76,9 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accesstoken, Messages.AccessTokenCreated);
         }
 
-
+        public IDataResult<User> RegisterForCompany(UserForRegisterDto userForRegisterDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

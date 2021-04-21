@@ -13,6 +13,7 @@ namespace Entities.Concrete
         public string FullName { get; set; }
         public string Adress { get; set; }
         public string TaxNumber { get; set; }
+        public bool Deleted { get; set; }
 
     }
 }
