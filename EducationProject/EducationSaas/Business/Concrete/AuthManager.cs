@@ -106,7 +106,7 @@ namespace Business.Concrete
             {
                 TaxNumber = dt.TaxNumber,
                 Adress = dt.Adress,
-                FullName = dt.FullName,
+                FullName = dt.CompanyName,
             };
             _companyDal.Add(company);
 
@@ -119,12 +119,13 @@ namespace Business.Concrete
 
             dt.CompanyId = company.Id;
             dt.LocalId = loc.Id;
-            dt.Password = GenerateRandomPassword(new PasswordOptions()
-            {
-                RequireDigit = true,
-                RequireUppercase = true,
-                RequiredLength = 5
-            });
+            if (string.IsNullOrWhiteSpace(dt.Password) || string.IsNullOrEmpty(dt.Password))
+                dt.Password = GenerateRandomPassword(new PasswordOptions()
+                {
+                    RequireDigit = true,
+                    RequireUppercase = true,
+                    RequiredLength = 5
+                });
             Register(dt);
 
             //Login(new UserForLoginDto()

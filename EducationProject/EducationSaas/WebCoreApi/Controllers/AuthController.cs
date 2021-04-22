@@ -53,8 +53,8 @@ namespace WebCoreApi.Controllers
         }
 
         /// <summary>
-        /// ilk firma kaydı için kullanılır.
-        /// companyid ve local id bos olur.kayit işleminden sonra dolar.
+        /// firmaya ait kullanıcı oluşturmak için kullanılır, firma ve local ıd dolu gönderilmeli
+        /// manager kısmında kullanıcı daha önce mail adresiyle kayıt yapılmış mıdır diye kontrol edilir
         /// </summary>
         /// <param name="userForRegisterDto"></param>
         /// <returns></returns>
@@ -80,8 +80,8 @@ namespace WebCoreApi.Controllers
         }
 
         /// <summary>
-        /// firmaya ait kullanıcı oluşturmak için kullanılır, firma ve local ıd dolu gönderilmeli
-        /// manager kısmında kullanıcı daha önce mail adresiyle kayıt yapılmış mıdır diye kontrol edilir.
+        /// ilk firma kaydı için kullanılır.
+        /// companyid ve local id bos olur.kayit işleminden sonra dolar.
         /// </summary>
         /// <param name="userForRegisterDto"></param>
         /// <returns></returns>
