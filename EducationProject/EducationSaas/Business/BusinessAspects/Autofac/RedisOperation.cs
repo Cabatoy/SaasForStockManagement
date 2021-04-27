@@ -34,9 +34,9 @@ namespace Business.BusinessAspects.Autofac
                 var test = invocation.TargetType.Name;
                 if (key == "Business.Abstract.ICompanyService.GetList()")
                 {
-                    string value = _redisCacheService.Get(key);
-                    invocation.ReturnValue = _redisCacheService.Get<SuccessDataResult<List<Company>>>(key);//null geliyor kontrol et
-                    return;
+                    //string value = _redisCacheService.Get(key);
+                    //invocation.ReturnValue = _redisCacheService.Get<SuccessDataResult<List<Company>>>(key);//null geliyor kontrol et
+                    //return;
                 }
             }
             invocation.Proceed();
