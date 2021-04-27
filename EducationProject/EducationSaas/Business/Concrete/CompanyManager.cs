@@ -3,7 +3,6 @@ using Business.Constant;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFrameWork;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using Business.BusinessAspects.Autofac;
@@ -14,11 +13,11 @@ using Core.Aspect.Autfac.Validation;
 using Core.Aspect.Autofac.Caching;
 using Core.Aspect.Autofac.Logging;
 using Core.Aspect.Autofac.Performance;
+
 using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Business;
-using Entities.Dtos;
-using log4net.Util;
-using Microsoft.AspNetCore.Http;
+using Entities.Concrete;
+
 
 namespace Business.Concrete
 {
@@ -72,6 +71,7 @@ namespace Business.Concrete
         }
 
         //[SecuredOperation("Company.List")]
+        [RedisOperation(duration: 10)]
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
         [PerformanceAspect(interval: 5)]
         [LogAspect(typeof(DatabaseLogger))]

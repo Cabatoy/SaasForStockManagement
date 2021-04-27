@@ -15,7 +15,7 @@ namespace Core.Aspect.Autofac.Caching
     {
         private int _duration;
         private ICacheManager _cacheManager;
-
+      
         public CacheAspect(int duration = 60)//dakika
         {
             _duration = duration;
