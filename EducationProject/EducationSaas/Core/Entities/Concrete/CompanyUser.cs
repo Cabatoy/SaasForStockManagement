@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities.Concrete
 {
-    public class User : IEntity
+    public class CompanyUser : IEntity
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }

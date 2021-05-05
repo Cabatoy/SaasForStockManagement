@@ -9,12 +9,12 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-  public  interface ILocalService 
+  public  interface ICompanyLocalService 
     {
-        IResult Add(Local user);
-        IResult Delete(Local user);
-        IResult Update(Local user);
+        IResult Add(CompanyLocal user);
+        IResult Delete(CompanyLocal user);
+        IResult Update(CompanyLocal user);
 
-        IDataResult<List<Local>> GetList();
+        IDataResult<List<CompanyLocal>> GetList();
     }
 }

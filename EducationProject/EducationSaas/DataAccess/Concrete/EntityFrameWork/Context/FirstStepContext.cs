@@ -11,6 +11,10 @@ namespace DataAccess.Concrete.EntityFrameWork
 {
     public class FirstStepContext : DbContext
     {
+        public FirstStepContext ()
+	{
+
+	}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //server=.;database=FirstStep;trusted_connection=true;
@@ -20,10 +24,10 @@ namespace DataAccess.Concrete.EntityFrameWork
         }
 
         public DbSet<Company> Company { get; set; }
-        public DbSet<OperationClaim> OperationClaim { get; set; }
-        public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
-        public DbSet<User> User { get; set; }
-        public DbSet<Local> Local { get; set; }
+        public DbSet<CompanyOperationClaim> OperationClaim { get; set; }
+        public DbSet<CompanyUserOperationClaim> UserOperationClaim { get; set; }
+        public DbSet<CompanyUser> User { get; set; }
+        public DbSet<CompanyLocal> Local { get; set; }
 
     }
 }

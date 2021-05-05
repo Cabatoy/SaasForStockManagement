@@ -20,29 +20,29 @@ namespace Business.Concrete
         {
             _rolesDal = rolesDal;
         }
-        public IResult Add(OperationClaim roles)
+        public IResult Add(CompanyOperationClaim roles)
         {
             _rolesDal.Add(roles);
             return new SuccessResult(message: Messages.rolesAdded);
         }
 
-        public IResult Delete(OperationClaim roles)
+        public IResult Delete(CompanyOperationClaim roles)
         {
             _rolesDal.Delete(roles);
             return new SuccessResult(message: Messages.rolesDeleted);
         }
 
-        public IDataResult<OperationClaim> GetById(int rolesId)
+        public IDataResult<CompanyOperationClaim> GetById(int rolesId)
         {
-            return new SuccessDataResult<OperationClaim>(_rolesDal.Get(p => p.Id == rolesId));
+            return new SuccessDataResult<CompanyOperationClaim>(_rolesDal.Get(p => p.Id == rolesId));
         }
 
-        public IDataResult<List<OperationClaim>> GetList()
+        public IDataResult<List<CompanyOperationClaim>> GetList()
         {
-            return new SuccessDataResult<List<OperationClaim>>(_rolesDal.GetList());
+            return new SuccessDataResult<List<CompanyOperationClaim>>(_rolesDal.GetList());
         }
 
-        public IResult Update(OperationClaim roles)
+        public IResult Update(CompanyOperationClaim roles)
         {
             _rolesDal.Update(roles);
             return new SuccessResult(message: Messages.rolesUpdated);

@@ -12,47 +12,47 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class UsersManager : IUserService
+    public class CompanyUsersManager : ICompanyUserService
     {
-        private readonly IUserDal _userDal;
+        private readonly ICompanyUserDal _userDal;
 
-        public UsersManager(IUserDal userDal)
+        public CompanyUsersManager(ICompanyUserDal userDal)
         {
             _userDal = userDal;
         }
-        public IResult Add(User user)
+        public IResult Add(CompanyUser user)
         {
             _userDal.Add(user);
             return new SuccessResult(message: Messages.UsersAdded);
         }
 
-        public IResult Delete(User user)
+        public IResult Delete(CompanyUser user)
         {
             _userDal.Delete(user);
             return new SuccessResult(message: Messages.UsersDeleted);
         }
 
-        public IDataResult<User> GetById(int userId)
+        public IDataResult<CompanyUser> GetById(int userId)
         {
-            return new SuccessDataResult<User>(_userDal.Get(p => p.Id == userId));
+            return new SuccessDataResult<CompanyUser>(_userDal.Get(p => p.Id == userId));
         }
 
-        public User GetByMail(string mail)
+        public CompanyUser GetByMail(string mail)
         {
             return _userDal.Get(p => p.Email == mail);
         }
 
-        public List<OperationClaim> GetClaims(User user)
+        public List<CompanyOperationClaim> GetClaims(CompanyUser user)
         {
             return _userDal.GetClaims(user);
         }
 
-        public IDataResult<List<User>> GetList()
+        public IDataResult<List<CompanyUser>> GetList()
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetList());
+            return new SuccessDataResult<List<CompanyUser>>(_userDal.GetList());
         }
 
-        public IResult Update(User user)
+        public IResult Update(CompanyUser user)
         {
             _userDal.Update(user);
             return new SuccessResult(message: Messages.UsersUpdated);

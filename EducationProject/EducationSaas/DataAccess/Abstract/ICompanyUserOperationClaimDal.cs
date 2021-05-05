@@ -10,7 +10,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IUserOperationClaimDal : IEntityRepository<UserOperationClaim>
+    public interface ICompanyUserOperationClaimDal : IEntityRepository<CompanyUserOperationClaim>
     {
        // List<UserOperationClaim> GetUserOperationClaims(int RoleID);
     }

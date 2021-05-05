@@ -24,8 +24,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CompanyManager>().As<ICompanyService>();
             builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
 
-            builder.RegisterType<LocalManager>().As<ILocalService>();
-            builder.RegisterType<EfLocalDal>().As<ILocalDal>();
+            builder.RegisterType<CompanyLocalManager>().As<ICompanyLocalService>();
+            builder.RegisterType<EfCompanyLocalDal>().As<ICompanyLocalDal>();
 
             #endregion
 
@@ -34,11 +34,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
             builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>();
 
-            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
-            builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
+            builder.RegisterType<CompanyUserOperationClaimManager>().As<ICompanyUserOperationClaimService>();
+            builder.RegisterType<EfCompanyUserOperationClaimDal>().As<ICompanyUserOperationClaimDal>();
 
-            builder.RegisterType<UsersManager>().As<IUserService>();
-            builder.RegisterType<EfUserDal>().As<IUserDal>();
+            builder.RegisterType<CompanyUsersManager>().As<ICompanyUserService>();
+            builder.RegisterType<EfCompanyUserDal>().As<ICompanyUserDal>();
 
 
             builder.RegisterType<AuthManager>().As<IAuthService>();

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Core.Entities.Concrete
 {
-    public class OperationClaim : IEntity
+    public class CompanyOperationClaim : IEntity
     {
         public int Id { get; set; }
 

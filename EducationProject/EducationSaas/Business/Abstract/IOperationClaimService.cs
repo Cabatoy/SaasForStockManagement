@@ -11,10 +11,10 @@ namespace Business.Abstract
 {
     public interface IOperationClaimService
     {
-        IDataResult<List<OperationClaim>> GetList();
-        IDataResult<OperationClaim> GetById(int rolesId);
-        IResult Add(OperationClaim roles);
-        IResult Delete(OperationClaim roles);
-        IResult Update(OperationClaim roles);
+        IDataResult<List<CompanyOperationClaim>> GetList();
+        IDataResult<CompanyOperationClaim> GetById(int rolesId);
+        IResult Add(CompanyOperationClaim roles);
+        IResult Delete(CompanyOperationClaim roles);
+        IResult Update(CompanyOperationClaim roles);
     }
 }

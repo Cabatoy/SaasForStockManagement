@@ -25,12 +25,12 @@ namespace Business.Concrete
 {
     public class AuthManager : IAuthService
     {
-        private readonly IUserService _userService;
+        private readonly ICompanyUserService _userService;
         private readonly ITokenHelper _tokenHelper;
-        private readonly ILocalDal _localDal;
+        private readonly ICompanyLocalDal _localDal;
         private readonly ICompanyDal _companyDal;
 
-        public AuthManager(IUserService usersService, ITokenHelper tokenHelper, ILocalDal localDal, ICompanyDal companyDal)
+        public AuthManager(ICompanyUserService usersService, ITokenHelper tokenHelper, ICompanyLocalDal localDal, ICompanyDal companyDal)
         {
             _userService = usersService;
             _tokenHelper = tokenHelper;
@@ -39,20 +39,20 @@ namespace Business.Concrete
         }
 
         [LogAspect(typeof(DatabaseLogger))]
-        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
+        public IDataResult<CompanyUser> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
             if (userToCheck == null)
             {
-                return new ErrorDataResult<User>(Messages.UserNotFound);
+                return new DataResult<CompanyUser>(null, false, Messages.UserNotFound);
             }
 
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PassWordHash, userToCheck.PassWordSalt))
             {
-                return new ErrorDataResult<User>(Messages.PasswordError);
+                return new DataResult<CompanyUser>(null, false, Messages.PasswordError);
             }
 
-            return new SuccessDataResult<User>(userToCheck, Messages.SuccessfullLogin);
+            return new DataResult<CompanyUser>(userToCheck, true, Messages.SuccessfullLogin);
 
 
         }
@@ -69,11 +69,11 @@ namespace Business.Concrete
 
         [LogAspect(typeof(DatabaseLogger))]
         [TransactionScopeAspect]
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
+        public IDataResult<CompanyUser> Register(UserForRegisterDto userForRegisterDto)
         {
             //byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
-            var usr = new User
+            var usr = new CompanyUser
             {
                 CompanyId = userForRegisterDto.CompanyId,
                 LocalId = userForRegisterDto.LocalId,
@@ -84,14 +84,14 @@ namespace Business.Concrete
                 Deleted = false
             };
             _userService.Add(usr);
-            return new SuccessDataResult<User>(usr, Messages.UsersAdded);
+            return new DataResult<CompanyUser>(usr, true, Messages.UsersAdded);
         }
 
-        public IDataResult<AccessToken> CreateAccessToken(User user)
+        public IDataResult<AccessToken> CreateAccessToken(CompanyUser user)
         {
             var claims = _userService.GetClaims(user);
             var accesstoken = _tokenHelper.CreateToken(user, claims);
-            return new SuccessDataResult<AccessToken>(accesstoken, Messages.AccessTokenCreated);
+            return new DataResult<AccessToken>(accesstoken, true, Messages.AccessTokenCreated);
         }
 
         [ValidationAspect(typeof(AuthValidator), Priority = 1)]
@@ -102,7 +102,7 @@ namespace Business.Concrete
             IResult result = BusinessRules.Run(CheckCompanyTaxNumberExist(dt.TaxNumber));
             if (result != null)
                 return result;
-            Company company = new()
+            Company company = new Company
             {
                 TaxNumber = dt.TaxNumber,
                 Adress = dt.Adress,
@@ -110,7 +110,7 @@ namespace Business.Concrete
             };
             _companyDal.Add(company);
 
-            Local loc = new()
+            CompanyLocal loc = new CompanyLocal
             {
                 CompanyId = company.Id,
                 FullName = "Merkez"
@@ -161,8 +161,8 @@ namespace Business.Concrete
             "!@$?_-"                        // non-alphanumeric
         };
 
-            Random rand = new(Environment.TickCount);
-            List<char> chars = new();
+            Random rand = new Random(Environment.TickCount);
+            List<char> chars = new List<char>();
 
             if (opts.RequireUppercase)
                 chars.Insert(rand.Next(0, chars.Count),

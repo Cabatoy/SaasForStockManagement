@@ -10,7 +10,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfUserOperationClaimDal : EfEntityRepositoryBase<UserOperationClaim, FirstStepContext>, IUserOperationClaimDal
+    public class EfCompanyUserOperationClaimDal : EfEntityRepositoryBase<CompanyUserOperationClaim, FirstStepContext>, ICompanyUserOperationClaimDal
     {
 
         //public List<UserOperationClaim> GetUserOperationClaims(int RoleID)

@@ -9,7 +9,7 @@ namespace Core.Aspect.Autfac.Transaction
     {
         public override void Intercept(IInvocation invocation)
         {
-            using System.Transactions.TransactionScope transactionScope = new();
+            TransactionScope transactionScope = new TransactionScope();
             try
             {
                 invocation.Proceed();

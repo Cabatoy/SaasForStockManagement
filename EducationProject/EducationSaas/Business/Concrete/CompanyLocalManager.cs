@@ -11,28 +11,28 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class LocalManager : ILocalService
+    public class CompanyLocalManager : ICompanyLocalService
     {
-        private readonly ILocalDal _localDal;
+        private readonly ICompanyLocalDal _localDal;
 
-        public LocalManager(ILocalDal localService)
+        public CompanyLocalManager(ICompanyLocalDal localService)
         {
             _localDal = localService;
         }
 
-        public IResult Add(Local local)
+        public IResult Add(CompanyLocal local)
         {
             _localDal.Add(local);
             return new SuccessResult(message: Messages.LocalsAdded);
         }
 
-        public IResult Delete(Local local)
+        public IResult Delete(CompanyLocal local)
         {
             _localDal.Update(PrepareForDelete(local));
             return new SuccessResult(message: Messages.LocalsDeleted);
         }
 
-        private static Local PrepareForDelete(Local local)
+        private static CompanyLocal PrepareForDelete(CompanyLocal local)
         {
             if (local.Deleted)
             {
@@ -40,20 +40,20 @@ namespace Business.Concrete
             }
             return local;
         }
-        public IDataResult<List<Local>> GetList(int companyId)
+        public IDataResult<List<CompanyLocal>> GetList(int companyId)
         {
-            return new SuccessDataResult<List<Local>>(_localDal.GetList(x => x.CompanyId == companyId));
+            return new SuccessDataResult<List<CompanyLocal>>(_localDal.GetList(x => x.CompanyId == companyId));
         }
 
-        public IResult Update(Local local)
+        public IResult Update(CompanyLocal local)
         {
             _localDal.Update(local);
             return new SuccessResult(message: Messages.LocalsUpdated);
         }
 
-        public IDataResult<List<Local>> GetList()
+        public IDataResult<List<CompanyLocal>> GetList()
         {
-            return new SuccessDataResult<List<Local>>(_localDal.GetList());
+            return new SuccessDataResult<List<CompanyLocal>>(_localDal.GetList());
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Business.BusinessAspects.Redis;
 using Castle.DynamicProxy;
@@ -12,6 +13,7 @@ using Core.Utilities.IoC;
 using Core.Utilities.Results;
 using Entities.Concrete;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Business.BusinessAspects.Autofac
@@ -34,7 +36,9 @@ namespace Business.BusinessAspects.Autofac
                 var test = invocation.TargetType.Name;
                 if (key == "Business.Abstract.ICompanyService.GetList()")
                 {
-                    //string value = _redisCacheService.Get(key);
+                    string value = _redisCacheService.Get(key);
+                    var tst= JsonConvert.DeserializeObject<SuccessDataResult<List<Company>>>(value);
+                    //invocation.ReturnValue =JsonConvert.DeserializeObject<SuccessDataResult<List<Company>>>(value);
                     //invocation.ReturnValue = _redisCacheService.Get<SuccessDataResult<List<Company>>>(key);//null geliyor kontrol et
                     //return;
                 }
