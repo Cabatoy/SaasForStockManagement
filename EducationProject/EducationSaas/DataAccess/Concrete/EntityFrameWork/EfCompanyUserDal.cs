@@ -15,8 +15,8 @@ namespace DataAccess.Concrete.EntityFrameWork
         public List<CompanyOperationClaim> GetClaims(CompanyUser user)
         {
             using var context = new FirstStepContext();
-            var result = from operationClaim in context.OperationClaim
-                join userOperationClaim in context.UserOperationClaim
+            var result = from operationClaim in context.CompanyOperationClaim
+                join userOperationClaim in context.CompanyUserOperationClaim
                     on operationClaim.Id equals userOperationClaim.OperationClaimId
                 where userOperationClaim.UserId == user.Id
                 select new CompanyOperationClaim { Id = operationClaim.Id, Name = operationClaim.Name };

@@ -14,11 +14,15 @@ namespace Core.Aspect.Autfac.Transaction
             {
                 invocation.Proceed();
                 transactionScope.Complete();
+
             }
             catch (Exception)
             {
-                transactionScope.Dispose();
                 throw;
+            }
+            finally
+            {
+                transactionScope.Dispose();
             }
         }
     }

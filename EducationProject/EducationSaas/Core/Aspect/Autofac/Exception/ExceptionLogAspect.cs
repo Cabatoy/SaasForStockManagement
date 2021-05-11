@@ -48,7 +48,8 @@ namespace Core.Aspect.Autofac.Exception
             {
                 MethodName = invocation.Method.Name,
                 LogParameters = logparameters
-
+                
+                
             };
             return logDetailWithException;
         }

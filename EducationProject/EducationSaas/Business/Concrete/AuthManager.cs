@@ -38,7 +38,7 @@ namespace Business.Concrete
             _companyDal = companyDal;
         }
 
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAppender))]
         public IDataResult<CompanyUser> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
@@ -67,7 +67,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAppender))]
         [TransactionScopeAspect]
         public IDataResult<CompanyUser> Register(UserForRegisterDto userForRegisterDto)
         {
@@ -95,7 +95,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AuthValidator), Priority = 1)]
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAppender))]
         [TransactionScopeAspect]
         public IResult RegisterForCompany(UserForRegisterDto dt)
         {
@@ -108,12 +108,15 @@ namespace Business.Concrete
                 Adress = dt.Adress,
                 FullName = dt.CompanyName,
             };
+            
             _companyDal.Add(company);
 
             CompanyLocal loc = new CompanyLocal
             {
                 CompanyId = company.Id,
-                FullName = "Merkez"
+                FullName = "Merkez",
+                Deleted = false
+
             };
             _localDal.Add(loc);
 

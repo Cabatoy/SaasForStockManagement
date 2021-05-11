@@ -34,7 +34,7 @@ namespace Business.Concrete
 
         [ValidationAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
         [CasheRemoveAspect("ICompanyService.Get()")] //getlist ile daha once cache a alinmis veriyi siler daha dogrusu ICompanyService.Get iceren her boku siler
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAsyncForwarder))]
         public IResult Add(Company company)
         {
             // ValidationTool.Validate(new CompanyValidator(), company);
@@ -57,14 +57,14 @@ namespace Business.Concrete
             return new SuccessResult();
         }
      
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAsyncForwarder))]
         public IResult Delete(Company company)
         {
             _companyDal.Delete(company);
             return new SuccessResult(message: Messages.CompanyDeleted);
         }
      
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAsyncForwarder))]
         public IDataResult<Company> GetById(int CompanyId)
         {
             return new SuccessDataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId));
@@ -74,13 +74,13 @@ namespace Business.Concrete
         [RedisOperation(duration: 10)]
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
         [PerformanceAspect(interval: 5)]
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAsyncForwarder))]
         public IDataResult<List<Company>> GetList()
         {
             return new SuccessDataResult<List<Company>>(_companyDal.GetList());
         }
        
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqAsyncForwarder))]
         public IResult Update(Company company)
         {
             _companyDal.Update(company);
