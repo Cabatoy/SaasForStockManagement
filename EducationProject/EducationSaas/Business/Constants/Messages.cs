@@ -1,4 +1,6 @@
-﻿namespace Business.Constant
+﻿using Entities.Concrete;
+
+namespace Business.Constant
 {
     public static class Messages
     {
@@ -47,8 +49,14 @@
         public static string CompanyTaxNumberExistError = "Firma Daha Önce Kayıt Edilmiştir.";
 
         public static string EmailCanNotBlank = "Mail Adresi Bos Birakilamaz";
+       
         internal static string rolesAdded = "Rol Eklendi.";
         public static string rolesDeleted = "Rol Silindi.";
         public static string rolesUpdated = "Rol Güncellendi.";
+        
+
+        public static string WareHouseUpdated ="Ambar Güncellendi";
+        public static string WareHouseDeleted = "Ambar Silindi";
+        public static string WareHouseAdded = "Ambar Eklendi";
     }
 }

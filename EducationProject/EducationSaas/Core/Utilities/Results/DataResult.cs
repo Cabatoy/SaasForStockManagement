@@ -17,6 +17,10 @@ namespace Core.Utilities.Results
         {
             Data = data;
         }
+        public DataResult (string message) : base(message)
+        {
+            Message = message;
+        }
         public T Data { get; }
     }
 }

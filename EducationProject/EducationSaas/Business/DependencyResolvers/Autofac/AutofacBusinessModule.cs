@@ -32,7 +32,7 @@ namespace Business.DependencyResolvers.Autofac
             #region Kullanici
 
             builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
-            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>();
+            builder.RegisterType<EfCompanyOperationClaimDal>().As<ICompanyOperationClaimDal>();
 
             builder.RegisterType<CompanyUserOperationClaimManager>().As<ICompanyUserOperationClaimService>();
             builder.RegisterType<EfCompanyUserOperationClaimDal>().As<ICompanyUserOperationClaimDal>();

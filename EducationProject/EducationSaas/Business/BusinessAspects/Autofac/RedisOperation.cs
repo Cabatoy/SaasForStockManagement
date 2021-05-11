@@ -33,18 +33,23 @@ namespace Business.BusinessAspects.Autofac
             var key = $"{methodName}({string.Join(",", argument.Select(x => x?.ToString() ?? "<Null>"))})";
             if (_redisCacheService.IsAdd(key))
             {
-                var test = invocation.TargetType.Name;
-                if (key == "Business.Abstract.ICompanyService.GetList()")
-                {
-                    string value = _redisCacheService.Get(key);
-                    var tst= JsonConvert.DeserializeObject<SuccessDataResult<List<Company>>>(value);
-                    //invocation.ReturnValue =JsonConvert.DeserializeObject<SuccessDataResult<List<Company>>>(value);
-                    //invocation.ReturnValue = _redisCacheService.Get<SuccessDataResult<List<Company>>>(key);//null geliyor kontrol et
-                    //return;
-                }
+                ///burayi biraz incelemek gerek
+
+                //var test = invocation.TargetType.Name;
+                // if (key == "Business.Abstract.ICompanyService.GetList()")
+                //{
+                //string value = _redisCacheService.Get(key);
+                ////DataResult<List<Company>>
+                //var tst = JsonConvert.DeserializeObject<DataResult<List<Company>>>(value);
+                ////invocation.ReturnValue =JsonConvert.DeserializeObject<SuccessDataResult<List<Company>>>(value);
+                //invocation.ReturnValue = tst;//null geliyor kontrol et
+                //return;
+                //}
             }
             invocation.Proceed();
-            _redisCacheService.Set(key, invocation.ReturnValue);//, TimeSpan.FromTicks(_duration)
+            //_redisCacheService.Set(key, invocation.ReturnValue);//, TimeSpan.FromTicks(_duration)
         }
+
+        
     }
 }

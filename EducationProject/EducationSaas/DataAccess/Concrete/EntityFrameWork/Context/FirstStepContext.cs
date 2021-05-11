@@ -24,10 +24,14 @@ namespace DataAccess.Concrete.EntityFrameWork
         }
 
         public DbSet<Company> Company { get; set; }
+
         public DbSet<CompanyOperationClaim> CompanyOperationClaim { get; set; }
         public DbSet<CompanyUserOperationClaim> CompanyUserOperationClaim { get; set; }
         public DbSet<CompanyUser> CompanyUser { get; set; }
+
         public DbSet<CompanyLocal> CompanyLocal { get; set; }
 
+
+        public DbSet<CompanyWareHouse> CompanyWareHouse { get; set; }
     }
 }

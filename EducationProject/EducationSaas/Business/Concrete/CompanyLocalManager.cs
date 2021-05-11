@@ -20,16 +20,26 @@ namespace Business.Concrete
             _localDal = localService;
         }
 
+        //[ValidationAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
+        //[SecuredOperation("Company.List")]
+        //[RedisOperation(duration: 10)]
+        //[CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
+        //[LogAspect(typeof(SeqAsyncForwarder))]
+        //[PerformanceAspect(interval: 5)]
+        //[TransactionScopeAspect]
+
+
         public IResult Add(CompanyLocal local)
         {
             _localDal.Add(local);
-            return new SuccessResult(message: Messages.LocalsAdded);
+            return new DataResult<CompanyLocal>(message: Messages.LocalsAdded);
         }
 
         public IResult Delete(CompanyLocal local)
         {
             _localDal.Update(PrepareForDelete(local));
-            return new SuccessResult(message: Messages.LocalsDeleted);
+            //return new DataResult<CompanyLocal>(local,true,message: Messages.LocalsDeleted);
+            return new DataResult<CompanyLocal>(message: Messages.LocalsDeleted);
         }
 
         private static CompanyLocal PrepareForDelete(CompanyLocal local)
@@ -42,18 +52,18 @@ namespace Business.Concrete
         }
         public IDataResult<List<CompanyLocal>> GetList(int companyId)
         {
-            return new SuccessDataResult<List<CompanyLocal>>(_localDal.GetList(x => x.CompanyId == companyId));
+            return new DataResult<List<CompanyLocal>>(_localDal.GetList(x => x.CompanyId == companyId), true);
         }
 
         public IResult Update(CompanyLocal local)
         {
             _localDal.Update(local);
-            return new SuccessResult(message: Messages.LocalsUpdated);
+            return new DataResult<CompanyLocal>(message: Messages.LocalsUpdated);
         }
 
         public IDataResult<List<CompanyLocal>> GetList()
         {
-            return new SuccessDataResult<List<CompanyLocal>>(_localDal.GetList());
+            return new DataResult<List<CompanyLocal>>(_localDal.GetList(),true);
         }
     }
 }

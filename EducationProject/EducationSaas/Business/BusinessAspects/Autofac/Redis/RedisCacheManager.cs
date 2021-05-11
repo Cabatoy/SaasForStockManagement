@@ -45,7 +45,6 @@ namespace Business.BusinessAspects.Redis
         public T Get<T>(string key) where T : class
         {
             string value = _client.GetDatabase().StringGet(key);
-            // return  JsonConvert.DeserializeObject<T>(value);
             return value.ToObject<T>();
         }
 
@@ -66,6 +65,7 @@ namespace Business.BusinessAspects.Redis
 
         public void Set<T>(string key, T value) where T : class
         {
+            //_client.GetDatabase().SetAdd(key, value.ToJson());
             _client.GetDatabase().StringSet(key, value.ToJson());
         }
 
@@ -87,7 +87,7 @@ namespace Business.BusinessAspects.Redis
 
         public bool IsAdd(string key)
         {
-            return _client.GetDatabase().StringGet(key) == RedisValue.Null ? false : true;//var yok kontrol
+            return _client.GetDatabase().StringGet(key) != RedisValue.Null;//var yok kontrol
         }
 
         //public async Task<T> GetAsync<T>(string key) where T : class
@@ -100,5 +100,17 @@ namespace Business.BusinessAspects.Redis
 
             return await _client.GetDatabase().StringGetAsync(key);
         }
+
+        public void Update<T>(string key, T value) where T : class
+        {
+            _client.GetDatabase().SetAdd(key, value.ToJson());
+        }
+
+        public void Update<T>(string key, T value, TimeSpan expiration) where T : class
+        {
+            Remove(key);
+            Set(key, value, expiration);
+        }
+
     }
 }

@@ -44,12 +44,12 @@ namespace Business.Concrete
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
             if (userToCheck == null)
             {
-                return new DataResult<CompanyUser>(null, false, Messages.UserNotFound);
+                return new DataResult<CompanyUser>(Messages.UserNotFound);
             }
 
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PassWordHash, userToCheck.PassWordSalt))
             {
-                return new DataResult<CompanyUser>(null, false, Messages.PasswordError);
+                return new DataResult<CompanyUser>(Messages.PasswordError);
             }
 
             return new DataResult<CompanyUser>(userToCheck, true, Messages.SuccessfullLogin);
@@ -95,7 +95,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AuthValidator), Priority = 1)]
-        [LogAspect(typeof(SeqAppender))]
+        [LogAspect(typeof(SeqAsyncForwarder))]
         [TransactionScopeAspect]
         public IResult RegisterForCompany(UserForRegisterDto dt)
         {
@@ -108,7 +108,7 @@ namespace Business.Concrete
                 Adress = dt.Adress,
                 FullName = dt.CompanyName,
             };
-            
+
             _companyDal.Add(company);
 
             CompanyLocal loc = new CompanyLocal
@@ -136,7 +136,7 @@ namespace Business.Concrete
             //    Email = dt.Email,
             //    Password = dt.Password
             //});
-            return new SuccessResult(message: Messages.CompanyAdded);
+            return new DataResult<UserForRegisterDto>(message: Messages.CompanyAdded);
         }
         /// <summary>
         /// Generates a Random Password

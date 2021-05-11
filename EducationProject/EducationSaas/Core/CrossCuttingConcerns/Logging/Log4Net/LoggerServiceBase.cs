@@ -63,6 +63,7 @@ namespace Core.CrossCuttingConcerns.Logging.Log4Net
 
         public void Error(LogDetailWithException logMessage)
         {
+            //buraya birde mail gonderim ekleyelim.
             if (IsErrorEnabled)
                 _log.Error(logMessage);
 

@@ -23,18 +23,18 @@ namespace Business.Concrete
         public IResult Add(CompanyUser user)
         {
             _userDal.Add(user);
-            return new SuccessResult(message: Messages.UsersAdded);
+            return new DataResult<CompanyUser>(Messages.UsersAdded);
         }
 
         public IResult Delete(CompanyUser user)
         {
             _userDal.Delete(user);
-            return new SuccessResult(message: Messages.UsersDeleted);
+            return new DataResult<CompanyUser>(Messages.UsersDeleted);
         }
 
         public IDataResult<CompanyUser> GetById(int userId)
         {
-            return new SuccessDataResult<CompanyUser>(_userDal.Get(p => p.Id == userId));
+            return new DataResult<CompanyUser>(_userDal.Get(p => p.Id == userId), true);
         }
 
         public CompanyUser GetByMail(string mail)
@@ -49,13 +49,13 @@ namespace Business.Concrete
 
         public IDataResult<List<CompanyUser>> GetList()
         {
-            return new SuccessDataResult<List<CompanyUser>>(_userDal.GetList());
+            return new DataResult<List<CompanyUser>>(_userDal.GetList(), true);
         }
 
         public IResult Update(CompanyUser user)
         {
             _userDal.Update(user);
-            return new SuccessResult(message: Messages.UsersUpdated);
+            return new DataResult<CompanyUser>(Messages.UsersUpdated);
         }
     }
 }

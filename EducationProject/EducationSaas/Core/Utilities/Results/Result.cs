@@ -18,6 +18,12 @@ namespace Core.Utilities.Results
         {
             Success = success;
         }
+
+        public Result(string message)
+        {
+            Message = message;
+        }
+
         public bool Success { get; set; }
 
         public string Message { get; set; }

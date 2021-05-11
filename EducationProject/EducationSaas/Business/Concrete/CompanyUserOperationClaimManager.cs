@@ -24,29 +24,29 @@ namespace Business.Concrete
         public IResult Add(CompanyUserOperationClaim roles)
         {
             _UserOperationClaim.Add(roles);
-            return new SuccessResult(message: Messages.rolesAdded);
+            return new DataResult<CompanyUserOperationClaim>(Messages.rolesAdded);
         }
 
         public IResult Delete(CompanyUserOperationClaim roles)
         {
             _UserOperationClaim.Delete(roles);
-            return new SuccessResult(message: Messages.rolesDeleted);
+            return new DataResult<CompanyUserOperationClaim>(Messages.rolesDeleted);
         }
 
         public IDataResult<List<CompanyUserOperationClaim>> GetByRoleId(int operationClaimId)
         {
-            return new SuccessDataResult<List<CompanyUserOperationClaim>>(_UserOperationClaim.GetList(p => p.OperationClaimId == operationClaimId));
+            return new DataResult<List<CompanyUserOperationClaim>>(_UserOperationClaim.GetList(p => p.OperationClaimId == operationClaimId), true);
         }
 
         public IDataResult<List<CompanyUserOperationClaim>> GetList()
         {
-            return new SuccessDataResult<List<CompanyUserOperationClaim>>(_UserOperationClaim.GetList());
+            return new DataResult<List<CompanyUserOperationClaim>>(_UserOperationClaim.GetList(), true);
         }
 
         public IResult Update(CompanyUserOperationClaim roles)
         {
             _UserOperationClaim.Update(roles);
-            return new SuccessResult(message: Messages.rolesUpdated);
+            return new DataResult<CompanyUserOperationClaim>(Messages.rolesUpdated);
         }
     }
 }

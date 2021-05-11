@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="CrossCuttingConcerns\Logging\Serilog\LoggerSerilogServiceBase.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
     <PackageReference Include="FluentValidation" Version="9.5.4" />
@@ -33,10 +29,6 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0-preview.1.21102.12" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.9.0" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CrossCuttingConcerns\Logging\Serilog\" />
   </ItemGroup>
 
 </Project>

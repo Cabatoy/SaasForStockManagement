@@ -17,5 +17,7 @@ namespace Business.BusinessAspects.Redis
         bool IsAdd(string key);
         Task<string> GetAsync<T>(string key) where T : class;
         //Task<T> GetAsync<T>(string key) where T : class;
+        void Update<T>(string key, T value) where T : class;
+        void Update<T>(string key, T value, TimeSpan expiration) where T : class;
     }
 }
