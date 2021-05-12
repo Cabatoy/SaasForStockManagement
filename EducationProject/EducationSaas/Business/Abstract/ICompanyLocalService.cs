@@ -11,9 +11,9 @@ namespace Business.Abstract
 {
   public  interface ICompanyLocalService 
     {
-        IResult Add(CompanyLocal user);
-        IResult Delete(CompanyLocal user);
-        IResult Update(CompanyLocal user);
+        IResult Add(CompanyLocal companyLocal);
+        IResult Delete(CompanyLocal companyLocal);
+        IResult Update(CompanyLocal companyLocal);
 
         IDataResult<List<CompanyLocal>> GetList();
     }

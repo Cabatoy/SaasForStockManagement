@@ -8,7 +8,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface IWareHouseCorridor : IEntityRepository<WareHouseCorridor>
+    public interface IWareHouseCorridorDal : IEntityRepository<WareHouseCorridor>
     {
     }
 }
