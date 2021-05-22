@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Business.Abstract;
+using Business.Constant;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,32 +20,36 @@ namespace Business.Concrete
 
         public IResult Add(WareHouseCorridor corridor)
         {
-            throw new NotImplementedException();
+            _wareHouseCorridorDal.Update(corridor);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseCorridorAdded);
         }
 
         public IResult Delete(WareHouseCorridor corridor)
         {
-            throw new NotImplementedException();
+            corridor.Deleted = true;
+            _wareHouseCorridorDal.Update(corridor);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseCorridorDeleted);
         }
 
-        public IDataResult<WareHouseCorridor> GetByBarcode(int corridorId)
+        public IDataResult<WareHouseCorridor> GetCorridorByBarcode(string corridorBarcode)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseCorridor>(_wareHouseCorridorDal.Get(x => x.CorridorBarcode == corridorBarcode), true);
         }
 
-        public IDataResult<WareHouseCorridor> GetById(int corridorBarcode)
+        public IDataResult<WareHouseCorridor> GetCorridorById(int corridorId)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseCorridor>(_wareHouseCorridorDal.Get(x => x.Id == corridorId), true);
         }
 
-        public IDataResult<List<WareHouseCorridor>> GetList()
+        public IDataResult<List<WareHouseCorridor>> GetCorridorList()
         {
-            throw new NotImplementedException();
+            return new DataResult<List<WareHouseCorridor>>(_wareHouseCorridorDal.GetList(), true);
         }
 
         public IResult Update(WareHouseCorridor corridor)
         {
-            throw new NotImplementedException();
+            _wareHouseCorridorDal.Update(corridor);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseCorridorUpdated);
         }
     }
 }

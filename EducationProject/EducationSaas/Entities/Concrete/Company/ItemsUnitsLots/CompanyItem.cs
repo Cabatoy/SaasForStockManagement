@@ -21,5 +21,6 @@ namespace Entities.Concrete
         public string Description { get; set; }
         public string DescriptionTwo { get; set; }
         public string DescriptionThree { get; set; }
+        public bool Deleted { get; set; }
     }
 }

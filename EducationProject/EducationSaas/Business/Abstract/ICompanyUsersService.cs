@@ -12,8 +12,8 @@ namespace Business.Abstract
     public interface ICompanyUserService
     {
         List<CompanyOperationClaim> GetClaims(CompanyUser user);
-        IDataResult<List<CompanyUser>> GetList();
-        IDataResult<CompanyUser> GetById(int userId);
+        IDataResult<List<CompanyUser>> GetUserList();
+        IDataResult<CompanyUser> GetUserById(int userId);
         CompanyUser GetByMail(string mail);
         IResult Add(CompanyUser user);
         IResult Delete(CompanyUser user);

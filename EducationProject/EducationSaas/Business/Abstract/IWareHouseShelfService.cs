@@ -10,9 +10,9 @@ namespace Business.Abstract
 {
     public interface IWareHouseShelfService
     {
-        IDataResult<List<WareHouseShelf>> GetList();
-        IDataResult<WareHouseShelf> GetById(int shelfId);
-        IDataResult<WareHouseShelf> GetByBarcode(int shelfBarcode);
+        IDataResult<List<WareHouseShelf>> GetShelfList();
+        IDataResult<WareHouseShelf> GetShelfById(int shelfId);
+        IDataResult<WareHouseShelf> GetShelfByBarcode(string shelfBarcode);
 
         IResult Add(WareHouseShelf shelf);
         IResult Delete(WareHouseShelf shelf);

@@ -13,7 +13,7 @@ namespace Entities.Concrete.Offer
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
-        
 
+        public bool Deleted { get; set; }
     }
 }

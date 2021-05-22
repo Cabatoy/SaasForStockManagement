@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
-    public class EfWareHouseCorridorDal : EfEntityRepositoryBase<WareHouseCorridor, FirstStepContext>, IWareHouseCorridor
+    public class EfWareHouseCorridorDal : EfEntityRepositoryBase<WareHouseCorridor, FirstStepContext>, IWareHouseCorridorDal
     {
 
     }

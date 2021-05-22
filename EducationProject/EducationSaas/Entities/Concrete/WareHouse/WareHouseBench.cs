@@ -12,7 +12,8 @@ namespace Entities.Concrete
         public int Id { get; set; }
       
         public int ShelfId { get; set; }
-        public string ShelfName { get; set; }
-        public string ShelfBarcode { get; set; }
+        public string BenchName { get; set; }
+        public string BenchBarcode { get; set; }
+        public bool Deleted { get; set; }
     }
 }

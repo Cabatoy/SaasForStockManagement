@@ -84,6 +84,91 @@
             <param name="company">firma ID</param>
             <returns></returns>
         </member>
+        <member name="T:WebCoreApi.Controllers.CompanyLocalsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompanyLocalsController.#ctor(Business.Abstract.ICompanyLocalService)">
+            <summary>
+            
+            </summary>
+            <param name="companyLocalService"></param>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompanyLocalsController.GetLocalList">
+            <summary>
+            Get All WareHouses..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompanyLocalsController.GetById(System.Int32)">
+            <summary>
+            getById
+            </summary>
+            <returns>DataResult companyLocal</returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompanyLocalsController.Add(Entities.Concrete.CompanyLocal)">
+            <summary>
+            WareHouse Add
+            </summary>
+            <returns>DataResult</returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompanyLocalsController.Update(Entities.Concrete.CompanyLocal)">
+            <summary>
+            update
+            </summary>
+            <returns>DataResult</returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.CompanyLocalsController.Delete(Entities.Concrete.CompanyLocal)">
+            <summary>
+            Silme işlemi ilgili kolona 
+            update şeklinde olur.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebCoreApi.Controllers.WareHouseController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebCoreApi.Controllers.WareHouseController.#ctor(Business.Abstract.ICompanyWareHouseService)">
+            <summary>
+            
+            </summary>
+            <param name="wareHouseService"></param>
+        </member>
+        <member name="M:WebCoreApi.Controllers.WareHouseController.GetList">
+            <summary>
+            Get All WareHouses..
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.WareHouseController.GetById(System.Int32)">
+            <summary>
+            getById
+            </summary>
+            <param name="wareHouseId"></param>
+            <returns>DataResult WareHouseDto</returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.WareHouseController.Add(Entities.Concrete.CompanyWareHouse)">
+            <summary>
+            WareHouse Add
+            </summary>
+            <returns>DataResult</returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.WareHouseController.Update(Entities.Concrete.CompanyWareHouse)">
+            <summary>
+            update
+            </summary>
+            <returns>DataResult</returns>
+        </member>
+        <member name="M:WebCoreApi.Controllers.WareHouseController.Delete(Entities.Concrete.CompanyWareHouse)">
+            <summary>
+            Silme işlemi ilgili kolona 
+            update şeklinde olur.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WebCoreApi.Program">
             <summary>
             programCs

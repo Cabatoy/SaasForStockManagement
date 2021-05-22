@@ -14,5 +14,9 @@ namespace Entities.Concrete
         public int LocalId { get; set; }
         public string FullName { get; set; }
         public bool WithAdress { get; set; } //default 0
+        
+        public bool Deleted { get; set; }
+
+        
     }
 }

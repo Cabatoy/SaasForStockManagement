@@ -5,13 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Transactions;
-using Business.BusinessAspects.Redis;
 using Core.DependencyResolvers;
 using Core.Utilities.Security.Encyption;
 using Core.Utilities.Security.Jwt;
@@ -48,7 +41,6 @@ namespace WebCoreApi
         {
             //services.AddMemoryCache();
             services.AddControllers();
-            services.AddSingleton<IRedisCacheService, RedisCacheManager>();
             services.AddCors(options =>
             {
                 //normalde localhost yerine domain gelecek.

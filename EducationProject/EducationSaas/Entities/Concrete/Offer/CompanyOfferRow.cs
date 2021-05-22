@@ -12,6 +12,6 @@ namespace Entities.Concrete.Offer
         public int Id { get; set; }
         public int HeaderId { get; set; }
 
-
+        public bool Deleted { get; set; }
     }
 }

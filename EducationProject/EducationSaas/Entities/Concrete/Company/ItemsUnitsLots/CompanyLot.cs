@@ -15,5 +15,6 @@ namespace Entities.Concrete
         public string Barcode { get; set; }
 
         public string BarcodeTwo { get; set; }
+        public bool Deleted { get; set; }
     }
 }

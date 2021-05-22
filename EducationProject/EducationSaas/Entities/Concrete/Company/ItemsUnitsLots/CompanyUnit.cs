@@ -15,5 +15,6 @@ namespace Entities.Concrete
         public string ShortName { get; set; }
         public int FactorOne { get; set; }
         public int FactorTwo { get; set; }
+        public bool Deleted { get; set; }
     }
 }

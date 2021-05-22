@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constant;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class WareHouseShelfManager :IWareHouseShelfService
+    public class WareHouseShelfManager : IWareHouseShelfService
     {
         private readonly IWareHouseShelfDal _wareHouseShelfDal;
         public WareHouseShelfManager(IWareHouseShelfDal wareHouseShelfDal)
@@ -18,34 +19,38 @@ namespace Business.Concrete
             _wareHouseShelfDal = wareHouseShelfDal;
         }
 
-        public IDataResult<List<WareHouseShelf>> GetList()
+        public IDataResult<List<WareHouseShelf>> GetShelfList()
         {
-            throw new NotImplementedException();
+            return new DataResult<List<WareHouseShelf>>(_wareHouseShelfDal.GetList(), true);
         }
 
-        public IDataResult<WareHouseShelf> GetById(int shelfId)
+        public IDataResult<WareHouseShelf> GetShelfById(int shelfId)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseShelf>(_wareHouseShelfDal.Get(x => x.Id == shelfId), true);
         }
 
-        public IDataResult<WareHouseShelf> GetByBarcode(int shelfBarcode)
+        public IDataResult<WareHouseShelf> GetShelfByBarcode(string shelfBarcode)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseShelf>(_wareHouseShelfDal.Get(x => x.ShelfBarcode == shelfBarcode), true);
         }
 
         public IResult Add(WareHouseShelf shelf)
         {
-            throw new NotImplementedException();
+            _wareHouseShelfDal.Add(shelf);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseShelfAdded);
         }
 
         public IResult Delete(WareHouseShelf shelf)
         {
-            throw new NotImplementedException();
+            shelf.Deleted = true;
+            _wareHouseShelfDal.Update(shelf);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseShelfDeleted);
         }
 
         public IResult Update(WareHouseShelf shelf)
         {
-            throw new NotImplementedException();
+            _wareHouseShelfDal.Update(shelf);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseShelfUpdated);
         }
     }
 }

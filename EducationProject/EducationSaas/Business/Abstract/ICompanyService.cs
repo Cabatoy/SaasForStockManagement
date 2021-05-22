@@ -10,8 +10,8 @@ namespace Business.Abstract
 {
     public interface ICompanyService
     {
-        IDataResult<List<Company>> GetList();
-        IDataResult<Company> GetById(int CompanyId);
+        IDataResult<List<Company>> GetCompanyList();
+        IDataResult<Company> GetCompanyById(int CompanyId);
         IResult Add(Company company);
         IResult Delete(Company company);
         IResult Update(Company company);

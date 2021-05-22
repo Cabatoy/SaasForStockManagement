@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Business.Constant;
+using Core.Aspect.Autofac.Caching;
+using Core.Aspect.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -61,9 +64,16 @@ namespace Business.Concrete
             return new DataResult<CompanyLocal>(message: Messages.LocalsUpdated);
         }
 
-        public IDataResult<List<CompanyLocal>> GetList()
+        [CacheAspect(duration: 10)]
+        [LogAspect(typeof(SeqAsyncForwarder))]
+        public IDataResult<List<CompanyLocal>> GetLocalList()
         {
-            return new DataResult<List<CompanyLocal>>(_localDal.GetList(),true);
+            return new DataResult<List<CompanyLocal>>(_localDal.GetList(), true);
+        }
+
+        public IDataResult<CompanyLocal> GetLocalByID(int localId)
+        {
+            return new DataResult<CompanyLocal>(_localDal.Get(filter: p => p.Id == localId), true);
         }
     }
 }

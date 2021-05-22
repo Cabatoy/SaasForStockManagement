@@ -5,17 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Castle.DynamicProxy;
 using Core.CrossCuttingConcerns.Caching;
+using Core.CrossCuttingConcerns.Caching.Redis;
+using Core.Extensions;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
+using Core.Utilities.Results;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Aspect.Autofac.Caching
 {
     public class CacheAspect : MethodInterception
     {
-        private int _duration;
-        private ICacheManager _cacheManager;
-      
+        private readonly int _duration;
+        private readonly ICacheManager _cacheManager;
+        
+
+
         public CacheAspect(int duration = 60)//dakika
         {
             _duration = duration;
@@ -24,8 +29,8 @@ namespace Core.Aspect.Autofac.Caching
 
         public override void Intercept(IInvocation invocation)
         {
-            var methodName = string.Format($"{invocation.Method.ReflectedType.FullName}.{invocation.Method.Name}");
-            var argument = invocation.Arguments.ToList();
+            var methodName = string.Format($"{invocation?.Method?.ReflectedType?.FullName}.{invocation?.Method?.Name}");
+            var argument = invocation?.Arguments.ToList();
             var key = $"{methodName}({string.Join(",", argument.Select(x => x?.ToString() ?? "<Null>"))})";
             if (_cacheManager.IsAdd(key))
             {

@@ -32,7 +32,7 @@ namespace Business.Concrete
             return new DataResult<CompanyUser>(Messages.UsersDeleted);
         }
 
-        public IDataResult<CompanyUser> GetById(int userId)
+        public IDataResult<CompanyUser> GetUserById(int userId)
         {
             return new DataResult<CompanyUser>(_userDal.Get(p => p.Id == userId), true);
         }
@@ -47,7 +47,7 @@ namespace Business.Concrete
             return _userDal.GetClaims(user);
         }
 
-        public IDataResult<List<CompanyUser>> GetList()
+        public IDataResult<List<CompanyUser>> GetUserList()
         {
             return new DataResult<List<CompanyUser>>(_userDal.GetList(), true);
         }

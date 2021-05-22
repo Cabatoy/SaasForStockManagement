@@ -1,8 +1,11 @@
-﻿using Business.Abstract;
-using Core.Extensions;
-using Entities.Concrete;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Business.Abstract;
+using Entities.Concrete;
 
 namespace WebCoreApi.Controllers
 {
@@ -11,30 +14,26 @@ namespace WebCoreApi.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class CompaniesController : ControllerBase
+    public class WareHouseController : ControllerBase
     {
-        private readonly ICompanyService _companyService;
-
+        private readonly ICompanyWareHouseService _wareHouseService;
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="companyService"></param>
-        public CompaniesController(ICompanyService companyService)
+        /// <param name="wareHouseService"></param>
+        public WareHouseController(ICompanyWareHouseService wareHouseService)
         {
-            _companyService = companyService;
+            _wareHouseService = wareHouseService;
         }
 
-
         /// <summary>
-        /// Get All Companies..
+        /// Get All WareHouses..
         /// </summary>
         /// <returns></returns>
         [HttpGet(template: "getall")]
-        //[Authorize()]
-        //[Authorize(Roles = "Company.List,asdas,asdasda,")]
         public IActionResult GetList()
         {
-            var result = _companyService.GetCompanyList();
+            var result = _wareHouseService.GetWareHouseList();
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -45,15 +44,15 @@ namespace WebCoreApi.Controllers
         }
 
         /// <summary>
-        /// 
+        /// getById
         /// </summary>
-        /// <param name="companyId"></param>
-        /// <returns></returns>
-        [HttpGet(template: "getById/{companyId:int}")]
-        // [Route("GetById/{companyId:int}")]
-        public IActionResult GetById(int companyId)
+        /// <param name="wareHouseId"></param>
+        /// <returns>DataResult WareHouseDto</returns>
+        [HttpGet(template: "getById/{wareHouseId:int}")]
+        // [Route("GetById/{wareHouseId:int}")]
+        public IActionResult GetById(int wareHouseId)
         {
-            var result = _companyService.GetCompanyById(companyId);
+            var result = _wareHouseService.GetWareHouseById(wareHouseId);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -63,15 +62,13 @@ namespace WebCoreApi.Controllers
         }
 
         /// <summary>
-        /// 
+        /// WareHouse Add
         /// </summary>
-        /// <param name="company"></param>
-        /// <returns></returns>
-
-        [HttpPost("add")]
-        public IActionResult Add(Company company)
+        /// <returns>DataResult</returns>
+        [HttpPost(template: "add")]
+        public IActionResult Add(CompanyWareHouse wareHouse)
         {
-            var result = _companyService.Add(company);
+            var result = _wareHouseService.Add(wareHouse);
             var cacheUpdate = GetList();
             if (result.Success)
             {
@@ -83,16 +80,15 @@ namespace WebCoreApi.Controllers
 
 
         /// <summary>
-        /// 
+        /// update
         /// </summary>
-        /// <param name="company"></param>
-        /// <returns></returns>
+        /// <returns>DataResult</returns>
         //[HttpPost(template: "update")]
         [HttpPut(template: "update")]
-        public IActionResult Update(Company company)
+        public IActionResult Update(CompanyWareHouse wareHouse)
         {
-            var result = _companyService.Update(company);
-            var CacheUpdate = GetList();
+            var result = _wareHouseService.Update(wareHouse);
+            var cacheUpdate = GetList();
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -105,15 +101,14 @@ namespace WebCoreApi.Controllers
         /// Silme işlemi ilgili kolona 
         /// update şeklinde olur.
         /// </summary>
-        /// <param name="company">firma ID</param>
         /// <returns></returns>
         [HttpPost(template: "delete")]
         //  [Route("Delete")]
-        public IActionResult Delete(Company company)
+        public IActionResult Delete(CompanyWareHouse wareHouse)
         {
-
-            var result = _companyService.Update(PrepareForDelete(company));
-            var CacheUpdate = GetList();
+            wareHouse.Deleted = true;
+            var result = _wareHouseService.Update((wareHouse));
+            var cacheUpdate = GetList();
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -122,17 +117,7 @@ namespace WebCoreApi.Controllers
                 return BadRequest(result.Message);
         }
 
-        private static Company PrepareForDelete(Company company)
-        {
-            if (company.Deleted)
-                return company;
-            else
-            {
-                company.Deleted = true;
-            }
 
-            return company;
-        }
 
     }
 }

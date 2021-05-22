@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Entities.Concrete;
+using Entities.Dtos;
 
 namespace DataAccess.Concrete.EntityFrameWork
 {
@@ -24,14 +25,18 @@ namespace DataAccess.Concrete.EntityFrameWork
         }
 
         public DbSet<Company> Company { get; set; }
-
         public DbSet<CompanyOperationClaim> CompanyOperationClaim { get; set; }
         public DbSet<CompanyUserOperationClaim> CompanyUserOperationClaim { get; set; }
         public DbSet<CompanyUser> CompanyUser { get; set; }
-
         public DbSet<CompanyLocal> CompanyLocal { get; set; }
-
-
         public DbSet<CompanyWareHouse> CompanyWareHouse { get; set; }
+      
+        public DbSet<WareHouseFloor> WareHouseFloor { get; set; }
+        public DbSet<WareHouseCorridor> WareHouseCorridor { get; set; }
+        public DbSet<WareHouseShelf> WareHouseShelf { get; set; }
+        public DbSet<WareHouseBench> WareHouseBench { get; set; }
+
+
+
     }
 }

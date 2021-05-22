@@ -12,5 +12,6 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int ItemId { get; set; }
         public int UnitId { get; set; }
+        public bool Deleted { get; set; }
     }
 }

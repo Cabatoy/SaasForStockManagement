@@ -11,7 +11,9 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
+        public int WareHouseId { get; set; }
         public string FloorName { get; set; }
         public string FloorBarcode { get; set; }
+        public bool Deleted { get; set; }
     }
 }

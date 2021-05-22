@@ -13,5 +13,6 @@ namespace Entities.Concrete
         public int FloorId { get; set; }
         public string CorridorName { get; set; }
         public string CorridorBarcode { get; set; }
+        public bool Deleted { get; set; }
     }
 }

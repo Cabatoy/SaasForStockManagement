@@ -10,9 +10,9 @@ namespace Business.Abstract
 {
     public interface IWareHouseCorridorService
     {
-        IDataResult<List<WareHouseCorridor>> GetList();
-        IDataResult<WareHouseCorridor> GetById(int corridorId);
-        IDataResult<WareHouseCorridor> GetByBarcode(int corridorBarcode);
+        IDataResult<List<WareHouseCorridor>> GetCorridorList();
+        IDataResult<WareHouseCorridor> GetCorridorById(int corridorId);
+        IDataResult<WareHouseCorridor> GetCorridorByBarcode(string corridorBarcode);
         IResult Add(WareHouseCorridor corridor);
         IResult Delete(WareHouseCorridor corridor);
         IResult Update(WareHouseCorridor corridor);

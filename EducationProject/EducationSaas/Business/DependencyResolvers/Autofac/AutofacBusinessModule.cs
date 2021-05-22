@@ -46,7 +46,32 @@ namespace Business.DependencyResolvers.Autofac
             //  builder.RegisterType<EfUserDal>().As<IUserDal>();
 
 
+
+
+
+
+
             #endregion
+
+            #region warehouse
+
+            builder.RegisterType<CompanyWareHouseManager>().As<ICompanyWareHouseService>();
+            builder.RegisterType<EfCompanyWareHouseDal>().As<ICompanyWareHouseDal>();
+
+            builder.RegisterType<WareHouseFloorManager>().As<IWareHouseFloorService>();
+            builder.RegisterType<EfWareHouseFloorDal>().As<IWareHouseFloorDal>();
+
+            builder.RegisterType<WareHouseCorridorManager>().As<IWareHouseCorridorService>();
+            builder.RegisterType<EfWareHouseCorridorDal>().As<IWareHouseCorridorDal>();
+
+            builder.RegisterType<WareHouseShelfManager>().As<IWareHouseShelfService>();
+            builder.RegisterType<EfWareHouseShelfDal>().As<IWareHouseShelfDal>();
+
+            builder.RegisterType<WareHouseBenchManager>().As<IWareHouseBenchService>();
+            builder.RegisterType<EfWareHouseBenchDal>().As<IWareHouseBenchDal>();
+
+            #endregion
+
 
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

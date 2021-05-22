@@ -10,9 +10,9 @@ namespace Business.Abstract
 {
     public interface IWareHouseBenchService
     {
-        IDataResult<List<WareHouseBench>> GetList();
-        IDataResult<WareHouseBench> GetById(int BenchIdId);
-        IDataResult<WareHouseBench> GetByBarcode(int BenchIdBarcode);
+        IDataResult<List<WareHouseBench>> GetBenchList();
+        IDataResult<WareHouseBench> GetBenchById(int BenchIdId);
+        IDataResult<WareHouseBench> GetByBarcode(string BenchBarcode);
         IResult Add(WareHouseBench roles);
         IResult Delete(WareHouseBench roles);
         IResult Update(WareHouseBench roles);

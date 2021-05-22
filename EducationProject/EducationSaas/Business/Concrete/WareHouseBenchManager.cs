@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constant;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,34 +20,38 @@ namespace Business.Concrete
             _wareHouseBenchDal = wareHouseBenchDal;
         }
 
-        public IDataResult<List<WareHouseBench>> GetList()
+        public IDataResult<List<WareHouseBench>> GetBenchList()
         {
-            throw new NotImplementedException();
+            return new DataResult<List<WareHouseBench>>(_wareHouseBenchDal.GetList(), true);
         }
 
-        public IDataResult<WareHouseBench> GetById(int BenchId)
+        public IDataResult<WareHouseBench> GetBenchById(int BenchId)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseBench>(_wareHouseBenchDal.Get(x => x.Id == BenchId), true);
         }
 
-        public IDataResult<WareHouseBench> GetByBarcode(int BenchBarcode)
+        public IDataResult<WareHouseBench> GetByBarcode(string BenchBarcode)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseBench>(_wareHouseBenchDal.Get(x => x.BenchBarcode == BenchBarcode), true);
         }
 
         public IResult Add(WareHouseBench Bench)
         {
-            throw new NotImplementedException();
+            _wareHouseBenchDal.Update(Bench);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseBenchAdded);
         }
 
         public IResult Delete(WareHouseBench Bench)
         {
-            throw new NotImplementedException();
+            Bench.Deleted = true;
+            _wareHouseBenchDal.Update(Bench);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseBenchDeleted);
         }
 
         public IResult Update(WareHouseBench Bench)
         {
-            throw new NotImplementedException();
+            _wareHouseBenchDal.Update(Bench);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseBenchUpdated);
         }
     }
 }

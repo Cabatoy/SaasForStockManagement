@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constant;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,32 +20,37 @@ namespace Business.Concrete
         }
         public IResult Add(WareHouseFloor floor)
         {
-            throw new NotImplementedException();
+            _wareHouseFloorDal.Add(floor);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseFloorAdded);
         }
 
         public IResult Delete(WareHouseFloor floor)
         {
-            throw new NotImplementedException();
+            floor.Deleted = true;
+            _wareHouseFloorDal.Update(floor);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseFloorDeleted);
         }
 
-        public IDataResult<WareHouseFloor> GetByBarcode(int floorBarcode)
+        public IDataResult<WareHouseFloor> GetFloorByBarcode(string floorBarcode)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseFloor>(_wareHouseFloorDal.Get(x => x.FloorBarcode == floorBarcode), true);
         }
 
-        public IDataResult<WareHouseFloor> GetById(int floorId)
+        public IDataResult<WareHouseFloor> GetFloorById(int floorId)
         {
-            throw new NotImplementedException();
+            return new DataResult<WareHouseFloor>(_wareHouseFloorDal.Get(x => x.Id == floorId), true);
         }
 
-        public IDataResult<List<WareHouseFloor>> GetList()
+        public IDataResult<List<WareHouseFloor>> GetFloorList()
         {
-            throw new NotImplementedException();
+
+            return new DataResult<List<WareHouseFloor>>(_wareHouseFloorDal.GetList(), true);
         }
 
         public IResult Update(WareHouseFloor floor)
         {
-            throw new NotImplementedException();
+            _wareHouseFloorDal.Update(floor);
+            return new DataResult<WareHouseFloor>(message: Messages.WareHouseFloorUpdated);
         }
     }
 }

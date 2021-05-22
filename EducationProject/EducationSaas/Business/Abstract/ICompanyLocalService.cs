@@ -14,7 +14,7 @@ namespace Business.Abstract
         IResult Add(CompanyLocal companyLocal);
         IResult Delete(CompanyLocal companyLocal);
         IResult Update(CompanyLocal companyLocal);
-
-        IDataResult<List<CompanyLocal>> GetList();
+        IDataResult<CompanyLocal> GetLocalByID(int localId);
+        IDataResult<List<CompanyLocal>> GetLocalList();
     }
 }

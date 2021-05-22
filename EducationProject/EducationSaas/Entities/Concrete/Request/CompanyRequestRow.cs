@@ -11,5 +11,6 @@ namespace Entities.Concrete.Request
     {
         public int Id { get; set; }
         public int HeaderId { get; set; }
+        public bool Deleted { get; set; }
     }
 }
