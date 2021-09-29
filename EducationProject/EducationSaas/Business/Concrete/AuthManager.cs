@@ -38,7 +38,7 @@ namespace Business.Concrete
             _companyDal = companyDal;
         }
 
-        [LogAspect(typeof(SeqAppender))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<CompanyUser> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
@@ -67,7 +67,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [LogAspect(typeof(SeqAppender))]
+        [LogAspect(typeof(DatabaseLogger))]
         [TransactionScopeAspect]
         public IDataResult<CompanyUser> Register(UserForRegisterDto userForRegisterDto)
         {
@@ -95,7 +95,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(AuthValidator), Priority = 1)]
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         [TransactionScopeAspect]
         public IResult RegisterForCompany(UserForRegisterDto dt)
         {

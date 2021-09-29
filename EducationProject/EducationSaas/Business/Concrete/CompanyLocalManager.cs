@@ -27,7 +27,7 @@ namespace Business.Concrete
         //[SecuredOperation("Company.List")]
         //[RedisOperation(duration: 10)]
         //[CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
-        //[LogAspect(typeof(SeqAsyncForwarder))]
+        //[LogAspect(typeof(DatabaseLogger))]
         //[PerformanceAspect(interval: 5)]
         //[TransactionScopeAspect]
 
@@ -65,7 +65,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect(duration: 10)]
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<List<CompanyLocal>> GetLocalList()
         {
             return new DataResult<List<CompanyLocal>>(_localDal.GetList(), true);

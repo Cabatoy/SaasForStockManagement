@@ -36,7 +36,7 @@ namespace Business.Concrete
             _wareHouseBenchDal = wareHouseBenchDal;
         }
 
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Add(CompanyWareHouse wareHouse)
         {
             _companyWareHouseDal.Add(wareHouse);
@@ -44,7 +44,7 @@ namespace Business.Concrete
             return new DataResult<CompanyWareHouse>(Messages.WareHouseAdded);
         }
 
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Delete(CompanyWareHouse wareHouse)
         {
             wareHouse.Deleted = true;
@@ -53,7 +53,7 @@ namespace Business.Concrete
             return new DataResult<CompanyWareHouse>(Messages.WareHouseDeleted);
         }
 
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         [PerformanceAspect(interval: 0)]
         public IDataResult<WareHouseDto> GetWareHouseById(int wareHouseId)
         {
@@ -140,13 +140,13 @@ namespace Business.Concrete
         }
 
         [CacheAspect(duration: 10)]
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<List<CompanyWareHouse>> GetWareHouseList()
         {
             return new DataResult<List<CompanyWareHouse>>(_companyWareHouseDal.GetList(), true);
         }
 
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Update(CompanyWareHouse wareHouse)
         {
             _companyWareHouseDal.Update(wareHouse);

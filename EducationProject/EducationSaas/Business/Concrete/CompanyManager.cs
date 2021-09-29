@@ -37,7 +37,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CompanyValidator), Priority = 1)] //add methoduna girmeden araya girip once kontrol saglar
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Add(Company company)
         {
             // ValidationTool.Validate(new CompanyValidator(), company);
@@ -57,7 +57,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Delete(Company company)
         {
             _companyDal.Delete(company);
@@ -66,7 +66,7 @@ namespace Business.Concrete
         }
 
 
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IResult Update(Company company)
         {
             _companyDal.Update(company);
@@ -75,13 +75,13 @@ namespace Business.Concrete
         }
 
         [CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         [PerformanceAspect(interval: 5)]
         public IDataResult<List<Company>> GetCompanyList()
         {
             return new DataResult<List<Company>>(_companyDal.GetList(), true);
         }
-        [LogAspect(typeof(SeqAsyncForwarder))]
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<Company> GetCompanyById(int CompanyId)
         {
             return new DataResult<Company>(_companyDal.Get(filter: p => p.Id == CompanyId), true);

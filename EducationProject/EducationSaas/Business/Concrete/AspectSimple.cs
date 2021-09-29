@@ -14,6 +14,6 @@ namespace Business.Concrete
         //[CacheAspect(duration: 10)]  //10 dakika boyunca cache te sonra db den tekrar cache e seklinde bir dongu
         //[PerformanceAspect(interval: 5)]
         //[TransactionScopeAspect]
-        //[LogAspect(typeof(SeqAsyncForwarder))]
+        //[LogAspect(typeof(DatabaseLogger))]
     }
 }

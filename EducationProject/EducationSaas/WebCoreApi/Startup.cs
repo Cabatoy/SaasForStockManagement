@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +13,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.Extensions;
 using Core.Utilities.IoC;
+using Core.Utilities.Security.HangFire;
+using Hangfire;
+using Hangfire.SqlServer;
 using NSwag;
 
 namespace WebCoreApi
@@ -44,8 +48,10 @@ namespace WebCoreApi
             services.AddCors(options =>
             {
                 //normalde localhost yerine domain gelecek.
+                //options.AddPolicy("AllowOrigin",
+                //    builder => builder.WithOrigins("http://localhost:3000"));
                 options.AddPolicy("AllowOrigin",
-                    builder => builder.WithOrigins("http://localhost:3000"));
+                    builder => builder.WithOrigins("https://bsite.net/Cabatoy"));
             });
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -68,7 +74,7 @@ namespace WebCoreApi
             {
                 new CoreModule()
             });
-
+           
             services.AddSwaggerDocument(config =>
             {
                 config.PostProcess = (doc =>
@@ -84,6 +90,27 @@ namespace WebCoreApi
                 });
 
             });
+
+            ////// Add Hangfire services.
+            //  var hangFireOptions = Configuration.GetSection("HangFireConfiguration").Get<HangFireOptions>();
+            //services.AddHangfire(configuration => configuration
+            //    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+            //    .UseSimpleAssemblyNameTypeSerializer()
+            //    .UseRecommendedSerializerSettings()
+            //    .UseSqlServerStorage(hangFireOptions.Connection, new SqlServerStorageOptions
+            //    {
+            //        CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+            //        SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+            //        QueuePollInterval = TimeSpan.Zero,
+            //        UseRecommendedIsolationLevel = true,
+            //        DisableGlobalLocks = true
+            //    }));
+
+            //// Add the processing server as IHostedService
+            //services.AddHangfireServer();
+
+            // Add framework services.
+            services.AddMvc();
 
         }
         /// <summary>
